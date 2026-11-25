@@ -1,1 +1,1469 @@
 
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Մարիայի 11-ամյակը</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:wght@400;500;600;700&family=Noto+Sans+Armenian:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --burgundy: #641d32;
+    --wine: #431321;
+    --brown: #38241f;
+    --chocolate: #251713;
+    --silver: #c7b5a5;
+    --ivory: #f5ede4;
+    --cream: #fffaf4;
+
+    --metallic: linear-gradient(
+        125deg,
+        #827168 0%,
+        #d8c7b8 20%,
+        #fff5e9 38%,
+        #b2a094 55%,
+        #e8d9cb 75%,
+        #8e7c70 100%
+    );
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--chocolate);
+    color: var(--brown);
+    font-family: 'Noto Sans Armenian', sans-serif;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+body.locked {
+    overflow: hidden;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+}
+
+h1, h2, h3 {
+    font-family: 'Noto Serif Armenian', serif;
+    font-weight: 500;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+.intro {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            #875064 0%,
+            #641d32 35%,
+            #35101e 75%,
+            #210c15 100%
+        );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: opacity 1s, visibility 1s;
+}
+
+.intro.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-border {
+    position: absolute;
+    inset: 18px;
+    border: 1px solid #c7b5a560;
+    pointer-events: none;
+}
+
+.intro-border::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border: 1px solid #c7b5a525;
+}
+
+.open-button {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--ivory);
+    cursor: pointer;
+    padding: 30px 15px;
+    position: relative;
+    z-index: 5;
+}
+
+.intro-heading {
+    font-family: 'Noto Serif Armenian', serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 65px;
+    color: #e4d4c7;
+}
+
+/* ENVELOPE */
+
+.envelope {
+    position: relative;
+    width: min(310px, 78vw);
+    aspect-ratio: 1.5;
+    margin: auto;
+    perspective: 1200px;
+    filter: drop-shadow(0 25px 30px #0006);
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #42121f;
+    border-radius: 3px;
+}
+
+.letter {
+    position: absolute;
+    left: 6%;
+    bottom: 7px;
+    width: 88%;
+    height: 92%;
+    background: var(--ivory);
+    border: 1px solid var(--silver);
+    color: var(--burgundy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: transform 1s ease;
+}
+
+.letter::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid #b5a092;
+}
+
+.letter-name {
+    font-family: 'Noto Serif Armenian', serif;
+    font-size: 25px;
+}
+
+.letter-age {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 65px;
+    line-height: 1;
+}
+
+.envelope-left {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        145deg,
+        #a35d72,
+        #641d32 45%,
+        #4c1526
+    );
+    clip-path: polygon(0 0, 65% 65%, 0 100%);
+}
+
+.envelope-right {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        220deg,
+        #a35d72,
+        #641d32 45%,
+        #4c1526
+    );
+    clip-path: polygon(100% 0, 35% 65%, 100% 100%);
+}
+
+.envelope-bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        160deg,
+        #a25b70,
+        #70263c 55%,
+        #4b1526
+    );
+    clip-path: polygon(0 100%, 50% 42%, 100% 100%);
+}
+
+.flap {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        150deg,
+        #b77a8b 0%,
+        #783047 35%,
+        #55182c 70%,
+        #9a5268 100%
+    );
+    clip-path: polygon(0 0, 100% 0, 50% 65%);
+    transform-origin: top;
+    transition: transform 0.8s ease;
+    z-index: 5;
+}
+
+.seal {
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 62px;
+    height: 62px;
+    border-radius: 47% 53% 49% 51%;
+    background: var(--metallic);
+    color: #604b40;
+    box-shadow:
+        0 5px 10px #0005,
+        inset 0 0 0 3px #ffffff30,
+        inset 0 0 0 6px #78645740;
+    display: grid;
+    place-items: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    z-index: 6;
+    transition: opacity 0.4s;
+}
+
+.envelope.open .seal {
+    opacity: 0;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope.open .letter {
+    transform: translateY(-65%);
+    transition-delay: 0.5s;
+}
+
+.tap-text {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 2;
+    margin-top: 45px;
+    letter-spacing: 0.5px;
+    animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.45;
+    }
+}
+
+/* FLOATING SPARKLES */
+
+.sparkle {
+    position: absolute;
+    color: #e8d9cb;
+    pointer-events: none;
+    animation: twinkle 3s infinite alternate;
+}
+
+.sparkle:nth-child(1) {
+    top: 15%;
+    left: 17%;
+    font-size: 24px;
+}
+
+.sparkle:nth-child(2) {
+    top: 25%;
+    right: 12%;
+    font-size: 15px;
+    animation-delay: 1s;
+}
+
+.sparkle:nth-child(3) {
+    bottom: 20%;
+    left: 12%;
+    font-size: 17px;
+    animation-delay: 0.7s;
+}
+
+.sparkle:nth-child(4) {
+    bottom: 14%;
+    right: 19%;
+    font-size: 27px;
+    animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: scale(1.1);
+    }
+}
+
+/* =========================
+   MAIN WEBSITE
+========================= */
+
+main {
+    max-width: 650px;
+    margin: auto;
+    background: var(--ivory);
+    overflow: hidden;
+}
+
+section {
+    padding: 65px 25px;
+}
+
+.section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: clamp(24px, 6vw, 33px);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100svh;
+    position: relative;
+    background: var(--burgundy);
+    color: var(--ivory);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        #210c1520 0%,
+        transparent 25%,
+        #210c1530 45%,
+        #210c15c9 80%,
+        #210c15 100%
+    );
+}
+
+.hero-frame {
+    position: absolute;
+    inset: 15px;
+    border: 1px solid #e8d9cb85;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 60px 20px 55px;
+}
+
+.hero-content .section-label {
+    color: #e8d9cb;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 12vw, 75px);
+    font-weight: 400;
+}
+
+.hero-age {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(115px, 32vw, 175px);
+    line-height: 0.85;
+    font-weight: 500;
+    background: var(--metallic);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 15px 0;
+}
+
+.hero-subtitle {
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.hero-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    letter-spacing: 5px;
+    margin-top: 25px;
+}
+
+.scroll-arrow {
+    display: inline-block;
+    margin-top: 25px;
+    color: var(--ivory);
+    text-decoration: none;
+    font-size: 25px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(7px);
+    }
+}
+
+/* INVITATION TEXT */
+
+.invitation {
+    background: var(--ivory);
+    position: relative;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.invitation h2 {
+    color: var(--burgundy);
+}
+
+.invitation p {
+    max-width: 380px;
+    margin: auto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 2.3;
+}
+
+.ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px auto;
+    color: var(--burgundy);
+    font-size: 24px;
+}
+
+.ornament::before,
+.ornament::after {
+    content: '';
+    width: 65px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #a48b79,
+        transparent
+    );
+}
+
+/* =========================
+   CALENDAR
+========================= */
+
+.calendar-section {
+    background:
+        radial-gradient(
+            ellipse at top,
+            #78354b,
+            #431321 70%
+        );
+    color: var(--ivory);
+    padding: 65px 25px;
+}
+
+.calendar-section .section-label {
+    color: var(--silver);
+}
+
+.calendar-frame {
+    max-width: 390px;
+    margin: auto;
+    padding: 25px 10px;
+    border: 1px solid #c7b5a570;
+    position: relative;
+}
+
+.calendar-frame::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border: 1px solid #c7b5a530;
+    pointer-events: none;
+}
+
+.calendar-month {
+    font-family: 'Noto Serif Armenian', serif;
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.calendar-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--silver);
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px 0;
+}
+
+.weekday {
+    font-size: 10px;
+    color: #d8c4b6;
+    padding-bottom: 10px;
+}
+
+.day {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+}
+
+.day.special {
+    color: #fff;
+    font-weight: 600;
+}
+
+.day.special svg {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    overflow: visible;
+}
+
+.calendar-caption {
+    font-size: 12px;
+    margin-top: 30px;
+    color: #e1cfc2;
+    line-height: 1.9;
+}
+
+/* =========================
+   PHOTO SECTION
+========================= */
+
+.photo-section {
+    background: var(--ivory);
+    padding: 45px 30px;
+}
+
+.photo-frame {
+    padding: 6px;
+    background: var(--metallic);
+    box-shadow: 0 12px 30px #38241f20;
+}
+
+.photo-frame img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.photo-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 25px;
+    margin-top: 20px;
+    color: var(--burgundy);
+}
+
+/* =========================
+   EVENT DETAILS
+========================= */
+
+.details {
+    background: var(--brown);
+    color: var(--ivory);
+}
+
+.details .section-label {
+    color: var(--silver);
+}
+
+.detail-card {
+    padding: 30px 10px;
+}
+
+.detail-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 20px;
+    color: var(--silver);
+}
+
+.detail-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.detail-label {
+    font-size: 12px;
+    color: #c7b5a5;
+    margin-bottom: 15px;
+}
+
+.detail-value {
+    font-family: 'Noto Serif Armenian', serif;
+    font-size: 28px;
+    line-height: 1.6;
+}
+
+.time-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    letter-spacing: 1px;
+}
+
+.detail-note {
+    font-size: 13px;
+    line-height: 2;
+    margin-top: 15px;
+    color: #e1d2c6;
+}
+
+.detail-divider {
+    width: 100px;
+    height: 1px;
+    background: var(--metallic);
+    margin: 10px auto;
+}
+
+.metal-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 30px;
+    min-height: 48px;
+    margin-top: 25px;
+    border: 1px solid #d6c4b4;
+    background: var(--metallic);
+    color: var(--chocolate);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.metal-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #0003;
+}
+
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+.gallery-section {
+    background: var(--ivory);
+    padding: 65px 20px;
+}
+
+.gallery-section h2 {
+    color: var(--burgundy);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.gallery-item {
+    background: var(--metallic);
+    padding: 4px;
+    box-shadow: 0 10px 20px #38241f20;
+}
+
+.gallery-item:nth-child(2) {
+    margin-top: 45px;
+}
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp {
+    background:
+        radial-gradient(
+            ellipse at top,
+            #854258,
+            #641d32 45%,
+            #431321 100%
+        );
+    color: var(--ivory);
+}
+
+.rsvp-frame {
+    border: 1px solid #c7b5a570;
+    padding: 40px 20px;
+}
+
+.rsvp-star {
+    font-size: 40px;
+    color: var(--silver);
+    margin-bottom: 20px;
+}
+
+.rsvp h2 {
+    font-size: 27px;
+}
+
+.rsvp p {
+    font-size: 14px;
+    line-height: 2.1;
+    max-width: 320px;
+    margin: auto;
+}
+
+.rsvp .metal-button {
+    width: 100%;
+    max-width: 300px;
+}
+
+#rsvp-message {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: var(--chocolate);
+    color: var(--ivory);
+    padding: 65px 20px 30px;
+}
+
+footer h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.footer-name {
+    font-family: 'Noto Serif Armenian', serif;
+    font-size: 35px;
+    color: var(--silver);
+    margin: 25px 0;
+}
+
+.footer-heart {
+    color: var(--silver);
+    font-size: 30px;
+}
+
+.footer-line {
+    width: 50px;
+    height: 1px;
+    background: #c7b5a560;
+    margin: 35px auto;
+}
+
+.brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 5px;
+    color: var(--silver);
+}
+
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+
+.reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.js .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.js .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 380px) {
+    section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .weekday {
+        font-size: 9px;
+    }
+
+    .day {
+        font-size: 18px;
+    }
+
+    .day.special svg {
+        width: 39px;
+        height: 39px;
+    }
+
+    .rsvp h2 {
+        font-size: 23px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================
+     OPENING ENVELOPE
+====================== -->
+
+<div class="intro" id="intro">
+
+    <div aria-hidden="true">
+        <span class="sparkle">✦</span>
+        <span class="sparkle">✧</span>
+        <span class="sparkle">✧</span>
+        <span class="sparkle">✦</span>
+    </div>
+
+    <div class="intro-border"></div>
+
+    <button class="open-button" id="open-button"
+            aria-label="Բացել հրավիրատոմսը">
+
+        <p class="intro-heading">
+            ՀՐԱՎԻՐԱՏՈՄՍ
+        </p>
+
+        <div class="envelope" id="envelope">
+
+            <div class="envelope-back"></div>
+
+            <div class="letter">
+                <span class="letter-name">Մարիա</span>
+                <span class="letter-age">11</span>
+            </div>
+
+            <div class="envelope-left"></div>
+            <div class="envelope-right"></div>
+            <div class="envelope-bottom"></div>
+            <div class="flap"></div>
+            <div class="seal">11</div>
+
+        </div>
+
+        <p class="tap-text">
+            Սեղմեք էկրանին՝ բացելու համար
+        </p>
+
+    </button>
+
+</div>
+
+<main id="invitation-content">
+
+<!-- =====================
+     FIRST PHOTO
+====================== -->
+
+<header class="hero">
+
+    <img
+        src="IMG_5941.JPG"
+        class="hero-image"
+        alt="Մարիա"
+        fetchpriority="high"
+    >
+
+    <div class="hero-overlay"></div>
+    <div class="hero-frame"></div>
+
+    <div class="hero-content">
+
+        <p class="section-label">
+            ԾՆՆԴՅԱՆ ՀՐԱՎԻՐԱՏՈՄՍ
+        </p>
+
+        <h1>Մարիա</h1>
+
+        <div class="hero-age">11</div>
+
+        <p class="hero-subtitle">
+            ՏԱՐԵԿԱՆ
+        </p>
+
+        <p class="hero-date">
+            23.11.2026
+        </p>
+
+        <a href="#invitation"
+           class="scroll-arrow"
+           aria-label="Կարդալ հրավիրատոմսը">
+            ↓
+        </a>
+
+    </div>
+
+</header>
+
+<!-- =====================
+     INVITATION TEXT
+====================== -->
+
+<section class="invitation reveal" id="invitation">
+
+    <div class="ornament">✦</div>
+
+    <h2>Սիրելի՛ ընկերներ</h2>
+
+    <p>
+        Սիրով հրավիրում եմ ձեզ՝ միասին
+        նշելու իմ 11-րդ տարեդարձը։
+        <br><br>
+        Մեզ սպասվում է ուրախությամբ,
+        ժպիտներով, խաղերով և գեղեցիկ
+        հիշողություններով լի անմոռանալի օր։
+        <br><br>
+        Շատ ուրախ կլինեմ, եթե այս
+        առանձնահատուկ օրն անցկացնենք միասին։
+    </p>
+
+    <div class="ornament">♡</div>
+
+</section>
+
+<!-- =====================
+     NOVEMBER CALENDAR
+====================== -->
+
+<section class="calendar-section reveal">
+
+    <p class="section-label">
+        ՆՇԵ՛Ք ՕՐԱՑՈՒՅՑՈՒՄ
+    </p>
+
+    <h2>Սպասված օրը</h2>
+
+    <div class="calendar-frame">
+
+        <div class="calendar-month">
+            Նոյեմբեր
+        </div>
+
+        <div class="calendar-year">
+            2026
+        </div>
+
+        <div class="calendar-grid" id="calendar">
+
+            <div class="weekday">Երկ</div>
+            <div class="weekday">Երք</div>
+            <div class="weekday">Չրք</div>
+            <div class="weekday">Հնգ</div>
+            <div class="weekday">Ուրբ</div>
+            <div class="weekday">Շբթ</div>
+            <div class="weekday">Կիր</div>
+
+        </div>
+
+    </div>
+
+    <p class="calendar-caption">
+        Նոյեմբերի 23, երկուշաբթի
+    </p>
+
+</section>
+
+<!-- =====================
+     SECOND PHOTO
+====================== -->
+
+<section class="photo-section reveal">
+
+    <div class="photo-frame">
+
+        <img
+            src="IMG_5942.JPG"
+            alt="Մարիայի լուսանկարը"
+            loading="lazy"
+        >
+
+    </div>
+
+    <div class="ornament">✦</div>
+
+</section>
+
+<!-- =====================
+     VENUE AND TIME
+====================== -->
+
+<section class="details reveal">
+
+    <p class="section-label">
+        ԵՐԲ ԵՎ ՈՐՏԵՂ
+    </p>
+
+    <h2>Տոնի մանրամասները</h2>
+
+    <div class="detail-card">
+
+        <div class="detail-icon">
+
+            <svg viewBox="0 0 32 32">
+                <path d="M16 29S5 18 5 12a11 11 0 0 1 22 0c0 6-11 17-11 17Z"/>
+                <circle cx="16" cy="12" r="4"/>
+            </svg>
+
+        </div>
+
+        <p class="detail-label">
+            Տոնակատարության վայրը
+        </p>
+
+        <p class="detail-value">
+            Ունց-Ունց
+        </p>
+
+        <a
+            class="metal-button"
+            href="https://maps.app.goo.gl/aH7XU68Xqv7oUrGE9"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Դիտել քարտեզը ↗
+        </a>
+
+    </div>
+
+    <div class="detail-divider"></div>
+
+    <div class="detail-card">
+
+        <div class="detail-icon">
+
+            <svg viewBox="0 0 32 32">
+                <circle cx="16" cy="16" r="13"/>
+                <path d="M16 7v9l6 4"/>
+            </svg>
+
+        </div>
+
+        <p class="detail-label">
+            Տոնակատարության ժամը
+        </p>
+
+        <p class="time-value">
+            13:30 — 17:30
+        </p>
+
+        <p class="detail-note">
+            Սպասում եմ ձեզ ժամը 13:30-ին։
+            <br>
+            Տոնակատարությունը կավարտվի
+            ժամը 17:30-ին։
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =====================
+     PHOTO GALLERY
+====================== -->
+
+<section class="gallery-section reveal">
+
+    <div class="ornament">✦</div>
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img
+                src="IMG_5948.JPG"
+                alt="Մարիայի լուսանկարը"
+                loading="lazy"
+            >
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="IMG_5949.JPG"
+                alt="Մարիայի լուսանկարը"
+                loading="lazy"
+            >
+        </div>
+
+    </div>
+
+    <div class="ornament">♡</div>
+
+</section>
+
+<!-- =====================
+     RSVP
+====================== -->
+
+<section class="rsvp reveal">
+
+    <div class="rsvp-frame">
+
+        <div class="rsvp-star">✧</div>
+
+        <h2>
+            Հաստատեք ձեր ներկայությունը
+        </h2>
+
+        <p>
+            Խնդրում եմ նախապես տեղեկացնել՝
+            կկարողանա՞ք մասնակցել
+            իմ ծննդյան տոնին։
+        </p>
+
+        <button
+            class="metal-button"
+            id="rsvp-button"
+            type="button"
+        >
+            Հաստատել մասնակցությունը
+        </button>
+
+        <p id="rsvp-message" aria-live="polite"></p>
+
+    </div>
+
+</section>
+
+<!-- =====================
+     FOOTER
+====================== -->
+
+<footer class="reveal">
+
+    <div class="footer-heart">♡</div>
+
+    <h2>Սիրով սպասում եմ ձեզ</h2>
+
+    <div class="footer-name">
+        Մարիա
+    </div>
+
+    <div class="footer-line"></div>
+
+    <div class="brand">
+        Invitéa
+    </div>
+
+</footer>
+
+</main>
+
+<script>
+
+/* =====================
+   OPENING ANIMATION
+====================== */
+
+document.documentElement.classList.add('js');
+document.body.classList.add('locked');
+
+const intro = document.getElementById('intro');
+const envelope = document.getElementById('envelope');
+const openButton = document.getElementById('open-button');
+const main = document.getElementById('invitation-content');
+
+main.inert = true;
+
+function openInvitation() {
+
+    if (envelope.classList.contains('open')) {
+        return;
+    }
+
+    envelope.classList.add('open');
+
+    const reducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    setTimeout(function () {
+
+        intro.classList.add('hidden');
+        document.body.classList.remove('locked');
+        main.inert = false;
+
+        window.scrollTo(0, 0);
+
+    }, reducedMotion ? 0 : 1700);
+
+}
+
+intro.addEventListener('click', openInvitation);
+
+
+/* =====================
+   NOVEMBER 2026 CALENDAR
+====================== */
+
+const calendar = document.getElementById('calendar');
+
+const year = 2026;
+const month = 10;
+
+const firstDay =
+    (new Date(year, month, 1).getDay() + 6) % 7;
+
+const totalDays =
+    new Date(year, month + 1, 0).getDate();
+
+for (let i = 0; i < firstDay; i++) {
+
+    const empty = document.createElement('div');
+
+    empty.setAttribute('aria-hidden', 'true');
+
+    calendar.appendChild(empty);
+
+}
+
+for (let day = 1; day <= totalDays; day++) {
+
+    const cell = document.createElement('div');
+
+    cell.className = 'day';
+    cell.textContent = day;
+
+    if (day === 23) {
+
+        cell.classList.add('special');
+
+        cell.setAttribute(
+            'aria-label',
+            'Նոյեմբերի 23՝ Մարիայի ծննդյան տոնը'
+        );
+
+        cell.innerHTML = `
+            <svg viewBox="0 0 50 50"
+                 aria-hidden="true">
+
+                <defs>
+                    <linearGradient id="heartMetal"
+                        x1="0%" y1="0%"
+                        x2="100%" y2="100%">
+
+                        <stop offset="0%"
+                              stop-color="#9e8d80"/>
+
+                        <stop offset="40%"
+                              stop-color="#fff5e9"/>
+
+                        <stop offset="75%"
+                              stop-color="#c7b5a5"/>
+
+                        <stop offset="100%"
+                              stop-color="#e8d9cb"/>
+
+                    </linearGradient>
+                </defs>
+
+                <path
+                    d="M25 46
+                       C18 38 2 25 3 14
+                       C4 2 19 1 25 12
+                       C32 1 47 2 47 14
+                       C48 25 32 39 25 46 Z"
+                    fill="none"
+                    stroke="url(#heartMetal)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+            </svg>
+
+            <span>23</span>
+        `;
+
+    }
+
+    calendar.appendChild(cell);
+
+}
+
+
+/* =====================
+   SCROLL ANIMATIONS
+====================== */
+
+if ('IntersectionObserver' in window) {
+
+    const observer = new IntersectionObserver(
+
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add('visible');
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        { threshold: 0.08 }
+
+    );
+
+    document.querySelectorAll('.reveal')
+        .forEach(function (element) {
+
+            observer.observe(element);
+
+        });
+
+} else {
+
+    document.querySelectorAll('.reveal')
+        .forEach(function (element) {
+
+            element.classList.add('visible');
+
+        });
+
+}
+
+
+/* =====================
+   RSVP APP CONNECTION
+====================== */
+
+// Paste your RSVP app link between the quotation marks.
+
+const rsvpLink = "";
+
+document.getElementById('rsvp-button')
+    .addEventListener('click', function () {
+
+        if (rsvpLink.trim() !== '') {
+
+            window.location.href = rsvpLink;
+
+        } else {
+
+            document.getElementById('rsvp-message')
+                .textContent =
+                'Մասնակցության հաստատման հղումը դեռ ակտիվացված չէ։';
+
+        }
+
+    });
+
+</script>
+
+<noscript>
+    <style>
+        .intro {
+            display: none;
+        }
+    </style>
+</noscript>
+
+</body>
+</html>
+
