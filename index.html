@@ -2,42 +2,51 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#39251D">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<meta name="theme-color" content="#C99D96">
+
 <meta name="robots" content="noindex, nofollow">
 
-<title>Մարիայի 11-ամյակը</title>
+<title>Մարիայի 11-ամյակը | Invitéa</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+Armenian:wght@400;500;600&family=Noto+Sans+Armenian:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Armenian:wght@300;400;500;600;700&family=Noto+Serif+Armenian:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================
-   COLOR PALETTE
-========================= */
+/* =====================================
+   INVITÉA — CARAMEL CONFETTI
+===================================== */
 
 :root {
-    --espresso: #39251D;
-    --dark: #291B15;
-    --mocha: #785440;
-    --bronze: #AD8B68;
-    --champagne: #D6BFA3;
-    --cream: #F4E9DC;
-    --white: #FFFAF3;
+
+    --chocolate: #714832;
+    --caramel: #B48260;
+    --rose: #C99D96;
+    --peach: #E8CBB7;
+    --vanilla: #F7EDE2;
+    --cream: #FFF8F0;
+    --deep: #543326;
 
     --metal: linear-gradient(
-        115deg,
-        #8B6948 0%,
-        #C4A17A 20%,
-        #FFF0D8 38%,
-        #B18B63 52%,
-        #E8CEAD 75%,
-        #96704D 100%
+        125deg,
+        #89594E 0%,
+        #C58E7B 15%,
+        #F5D6C2 32%,
+        #FFF2DF 42%,
+        #B77B68 56%,
+        #E8B9A7 75%,
+        #9E6455 100%
     );
+
 }
 
 * {
@@ -51,12 +60,11 @@ html {
 }
 
 body {
-    background: var(--espresso);
-    color: var(--espresso);
+    background: var(--peach);
+    color: var(--chocolate);
     font-family: 'Noto Sans Armenian', sans-serif;
-    text-align: center;
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 body.locked {
@@ -69,13 +77,8 @@ input {
 }
 
 button,
-a,
-input {
-    -webkit-tap-highlight-color: transparent;
-}
-
-button,
 a {
+    -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
 
@@ -96,59 +99,67 @@ h3 {
 }
 
 main {
-    max-width: 540px;
+    max-width: 560px;
     margin: auto;
-    background: var(--cream);
+    background: var(--vanilla);
     overflow: hidden;
 }
 
 section {
-    padding: 60px 24px;
-}
-
-.section-title {
-    font-size: clamp(24px, 6vw, 32px);
-    line-height: 1.6;
-    margin-bottom: 25px;
+    position: relative;
 }
 
 .eyebrow {
     font-size: 10px;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    margin-bottom: 18px;
-    color: var(--mocha);
+    letter-spacing: 2px;
+    font-weight: 600;
 }
 
-/* =========================
+.section-title {
+    font-size: clamp(25px, 6vw, 34px);
+    line-height: 1.6;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--deep);
+    outline-offset: 4px;
+}
+
+/* =====================================
    OPENING SCREEN
-========================= */
+===================================== */
 
 .intro {
+
     position: fixed;
     inset: 0;
     z-index: 1000;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     background:
         radial-gradient(
-            ellipse at 25% 15%,
-            #F4E4CD,
-            transparent 55%
+            ellipse at 15% 10%,
+            #F7EDE2,
+            transparent 45%
         ),
         radial-gradient(
-            ellipse at 85% 90%,
-            #96704D,
+            ellipse at 90% 90%,
+            #B48260,
             transparent 65%
         ),
-        #D6BFA3;
+        #C99D96;
 
-    display: grid;
-    place-items: center;
     overflow: hidden;
 
     transition:
-        opacity 0.8s ease,
-        visibility 0.8s ease;
+        opacity .65s ease,
+        visibility .65s ease;
+
 }
 
 .intro.hidden {
@@ -157,98 +168,143 @@ section {
     pointer-events: none;
 }
 
-.intro-border {
+.intro-outline {
     position: absolute;
-    inset: 16px;
-    border: 1px solid #78544080;
+    inset: 15px;
+    border: 1px solid #FFF8F080;
     pointer-events: none;
 }
 
-.intro-border::after {
+.intro-outline::after {
     content: '';
     position: absolute;
     inset: 5px;
-    border: 1px solid #FFF0D870;
+    border: 1px solid #71483230;
 }
 
 .intro-content {
     position: relative;
-    z-index: 3;
     width: 100%;
+    max-width: 450px;
     padding: 25px;
+    text-align: center;
+    z-index: 5;
 }
 
-.intro-title {
-    font-family: 'Noto Serif Armenian', serif;
-    font-size: 13px;
+.intro-heading {
+    font-size: 12px;
     letter-spacing: 4px;
-    margin-bottom: 65px;
-    color: var(--espresso);
+    margin-bottom: 70px;
+}
+
+.intro-brand {
+    position: absolute;
+    bottom: max(30px, env(safe-area-inset-bottom));
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 5px;
+
+    color: var(--chocolate);
 }
 
 .open-button {
-    width: 100%;
     border: none;
     background: transparent;
-    color: var(--espresso);
+    width: 100%;
+    color: inherit;
 }
 
-/* =========================
-   METALLIC ENVELOPE
-========================= */
+.tap-text {
+    margin-top: 55px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 2;
+    animation: breathe 2.5s ease infinite;
+}
+
+@keyframes breathe {
+    50% {
+        opacity: .45;
+    }
+}
+
+/* =====================================
+   METALLIC HEART ENVELOPE
+===================================== */
 
 .envelope {
+
     position: relative;
-    width: min(310px, 78vw);
-    aspect-ratio: 1.48;
+
+    width: min(320px, 80vw);
+    aspect-ratio: 1.45;
+
     margin: auto;
+
     perspective: 1200px;
 
     filter: drop-shadow(
-        0 25px 25px #39251D50
+        0 25px 25px #71483245
     );
+
 }
 
 .envelope-back {
     position: absolute;
     inset: 0;
-    background: #39251D;
     border-radius: 3px;
+    background: #A47770;
 }
 
 .letter {
+
     position: absolute;
-    left: 6%;
-    bottom: 5%;
+
     width: 88%;
     height: 90%;
-    background: var(--white);
-    border: 1px solid var(--bronze);
+
+    left: 6%;
+    bottom: 5%;
+
+    background: var(--cream);
+    border: 1px solid var(--caramel);
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    transition: transform 0.9s ease;
+    transition: transform .85s
+        cubic-bezier(.22,.8,.25,1);
+
 }
 
-.letter::after {
+.letter::before {
     content: '';
     position: absolute;
-    inset: 8px;
-    border: 1px solid var(--champagne);
+    inset: 9px;
+    border: 1px solid var(--rose);
 }
 
 .letter-name {
     font-family: 'Noto Serif Armenian', serif;
-    font-size: 24px;
+    font-size: 25px;
 }
 
 .letter-age {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 65px;
+    font-size: 75px;
     line-height: 1;
+    color: var(--caramel);
+}
+
+.letter-star {
+    font-size: 17px;
+    color: var(--rose);
 }
 
 .envelope-left {
@@ -256,10 +312,9 @@ section {
     inset: 0;
 
     background: linear-gradient(
-        135deg,
-        #AD8B68,
-        #785440 45%,
-        #39251D
+        140deg,
+        #DDB5AC,
+        #B98A82
     );
 
     clip-path: polygon(
@@ -274,10 +329,9 @@ section {
     inset: 0;
 
     background: linear-gradient(
-        225deg,
-        #AD8B68,
-        #785440 45%,
-        #39251D
+        220deg,
+        #D8ACA2,
+        #AA7970
     );
 
     clip-path: polygon(
@@ -293,9 +347,9 @@ section {
 
     background: linear-gradient(
         150deg,
-        #A27D5D,
-        #785440 50%,
-        #4D3326
+        #E6C1B5,
+        #C99D96 60%,
+        #B88980
     );
 
     clip-path: polygon(
@@ -306,15 +360,15 @@ section {
 }
 
 .flap {
+
     position: absolute;
     inset: 0;
 
     background: linear-gradient(
-        145deg,
-        #C3A17E,
-        #96704D 25%,
-        #785440 55%,
-        #493026
+        160deg,
+        #E8C5B9,
+        #D2A49A 50%,
+        #B58278
     );
 
     clip-path: polygon(
@@ -324,44 +378,46 @@ section {
     );
 
     transform-origin: top;
-    transition: transform 0.75s ease;
+    transition: transform .7s ease;
+
     z-index: 5;
+
 }
 
-.seal {
+.heart-seal {
+
     position: absolute;
+
     top: 61%;
     left: 50%;
 
+    width: 74px;
+    height: 74px;
+
     transform: translate(-50%, -50%);
 
-    width: 62px;
-    height: 62px;
-
-    border-radius: 48% 52% 46% 54%;
-
-    background: var(--metal);
-
-    box-shadow:
-        0 5px 15px #0005,
-        inset 0 0 0 3px #FFFFFF40,
-        inset 0 0 0 6px #78544035;
-
-    display: grid;
-    place-items: center;
-
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 600;
-
-    color: var(--espresso);
     z-index: 6;
 
-    transition: opacity 0.3s;
+    filter: drop-shadow(
+        0 5px 5px #71483260
+    );
+
+    transition:
+        opacity .3s,
+        transform .3s;
+
 }
 
-.envelope.open .seal {
+.heart-seal svg {
+    width: 100%;
+    height: 100%;
+}
+
+.envelope.open .heart-seal {
     opacity: 0;
+    transform:
+        translate(-50%, -50%)
+        scale(1.3);
 }
 
 .envelope.open .flap {
@@ -370,80 +426,302 @@ section {
 }
 
 .envelope.open .letter {
-    transform: translateY(-70%);
-    transition-delay: 0.4s;
+    transform: translateY(-75%);
+    transition-delay: .35s;
 }
 
-.tap-text {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 2;
-    margin-top: 45px;
-    animation: breathe 2.5s infinite;
+.intro.opening .tap-text {
+    opacity: 0;
+    animation: none;
 }
 
-@keyframes breathe {
-    50% {
-        opacity: 0.5;
-    }
+.intro.opening .intro-heading {
+    opacity: 0;
+    transition: opacity .3s;
 }
 
-/* =========================
-   FLOATING SPARKLES
-========================= */
+/* =====================================
+   CINEMATIC PHOTO TRANSITION
+===================================== */
 
-.particles {
+.cinematic {
+
+    position: fixed;
+    z-index: 1100;
+
+    top: 50%;
+    left: 50%;
+
+    width: 220px;
+    height: 150px;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 0;
+    visibility: hidden;
+
+    overflow: hidden;
+    background: var(--cream);
+
+    border: 1px solid var(--rose);
+    border-radius: 3px;
+
+    pointer-events: none;
+
+    transition:
+        width .95s cubic-bezier(.2,.75,.2,1),
+        height .95s cubic-bezier(.2,.75,.2,1),
+        top .95s cubic-bezier(.2,.75,.2,1),
+        border-radius .95s,
+        opacity .35s;
+
+}
+
+.cinematic.ready {
+    visibility: visible;
+    opacity: 1;
+}
+
+.cinematic.expand {
+    top: 50%;
+    width: min(100vw, 560px);
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+}
+
+.cinematic img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    opacity: 0;
+    transform: scale(1.12);
+
+    transition:
+        opacity .7s ease,
+        transform 1.2s ease;
+
+}
+
+.cinematic.expand img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.cinematic.finish {
+    opacity: 0;
+}
+
+/* =====================================
+   SPARKLES AND CONFETTI
+===================================== */
+
+.sparkles {
     position: absolute;
     inset: 0;
     overflow: hidden;
     pointer-events: none;
 }
 
-.particle {
-    position: absolute;
-    bottom: -30px;
-    color: #FFF4E2;
-    text-shadow: 0 0 10px #FFFFFF90;
-    opacity: 0;
+.sparkle {
 
-    animation: floatUp linear infinite;
+    position: absolute;
+
+    color: #FFF4E7;
+
+    text-shadow:
+        0 0 12px #FFFFFF80;
+
+    animation: twinkle 3s
+        ease-in-out infinite alternate;
+
 }
 
-@keyframes floatUp {
+@keyframes twinkle {
 
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
+    from {
+        opacity: .2;
+        transform: scale(.7) rotate(0deg);
     }
 
-    15% {
-        opacity: 0.9;
+    to {
+        opacity: 1;
+        transform: scale(1.2) rotate(25deg);
+    }
+
+}
+
+.confetti-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.confetti {
+
+    position: absolute;
+
+    top: -30px;
+
+    animation: confettiFall
+        var(--duration)
+        var(--delay)
+        cubic-bezier(.15,.45,.5,1)
+        forwards;
+
+}
+
+@keyframes confettiFall {
+
+    0% {
+        transform:
+            translate3d(0,-30px,0)
+            rotate(0deg);
+        opacity: 1;
     }
 
     85% {
-        opacity: 0.6;
+        opacity: 1;
     }
 
     100% {
-        transform: translateY(-115vh) rotate(180deg);
+        transform:
+            translate3d(
+                var(--drift),
+                110vh,
+                0
+            )
+            rotate(var(--rotation));
+
         opacity: 0;
     }
 
 }
 
-/* =========================
-   FIRST PHOTO
-   NO TEXT OVER PHOTO
-========================= */
+/* =====================================
+   MUSIC CONTROL
+===================================== */
+
+.music-button {
+
+    position: fixed;
+
+    right: max(18px, env(safe-area-inset-right));
+    top: max(18px, env(safe-area-inset-top));
+
+    z-index: 500;
+
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    border: 1px solid #FFF8F0A0;
+
+    background: #714832C0;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    color: var(--cream);
+
+    box-shadow:
+        0 5px 15px #71483225;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .5s,
+        transform .3s,
+        visibility .5s;
+
+}
+
+body.opened .music-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.music-button:active {
+    transform: scale(.9);
+}
+
+.music-button svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sound-bars {
+    display: none;
+    height: 20px;
+    align-items: center;
+    gap: 3px;
+}
+
+.sound-bars span {
+    display: block;
+    width: 2px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--cream);
+    animation: soundWave .8s infinite alternate;
+}
+
+.sound-bars span:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.sound-bars span:nth-child(3) {
+    animation-delay: .4s;
+}
+
+.sound-bars span:nth-child(4) {
+    animation-delay: .1s;
+}
+
+.music-button.playing .sound-bars {
+    display: flex;
+}
+
+.music-button.playing .muted-icon {
+    display: none;
+}
+
+@keyframes soundWave {
+    to {
+        height: 20px;
+    }
+}
+
+/* =====================================
+   01 — FULL SCREEN PHOTO
+===================================== */
 
 .hero {
+
     position: relative;
-    width: 100%;
+
     height: 100svh;
     min-height: 400px;
-    max-height: 950px;
+
+    background: var(--rose);
+
     overflow: hidden;
-    background: var(--espresso);
+
 }
 
 .hero img {
@@ -451,26 +729,21 @@ section {
     height: 100%;
     object-fit: cover;
     object-position: center;
-
-    transform: scale(1.07);
-    transition: transform 3s ease;
 }
 
-body.opened .hero img {
-    transform: scale(1);
-}
-
-.hero-frame {
+.hero-outline {
     position: absolute;
-    inset: 12px;
-    border: 1px solid #E8CEAD90;
+    inset: 10px;
+    border: 1px solid #FFF8F075;
     pointer-events: none;
 }
 
-.scroll-indicator {
+.scroll-button {
+
     position: absolute;
-    bottom: max(24px, env(safe-area-inset-bottom));
+
     left: 50%;
+    bottom: max(25px, env(safe-area-inset-bottom));
 
     transform: translateX(-50%);
 
@@ -481,161 +754,290 @@ body.opened .hero img {
     place-items: center;
 
     border-radius: 50%;
-    border: 1px solid #E8CEAD;
+    border: 1px solid #FFF8F090;
 
-    background: #39251D90;
+    background: #F7EDE260;
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
-    color: var(--cream);
+    color: var(--deep);
+
     text-decoration: none;
+
 }
 
-.scroll-indicator svg {
-    width: 19px;
-    animation: arrowMove 2s infinite;
+.scroll-button svg {
+    width: 20px;
+    animation: arrowBounce 2s infinite;
 }
 
-@keyframes arrowMove {
+@keyframes arrowBounce {
     50% {
         transform: translateY(4px);
     }
 }
 
-/* =========================
-   INVITATION TEXT
-========================= */
+/* =====================================
+   02 — BIRTHDAY EDITORIAL
+===================================== */
 
-.invitation {
-    position: relative;
+.editorial {
+
+    padding: 45px 22px 60px;
 
     background:
         radial-gradient(
-            ellipse at top,
-            #EAD8C2,
-            transparent 65%
+            ellipse at top right,
+            #D8ADA3,
+            transparent 60%
         ),
-        var(--white);
+        var(--peach);
 
-    padding-top: 65px;
-    padding-bottom: 65px;
+    overflow: hidden;
+
 }
 
-.invitation-name {
-    font-size: clamp(38px, 10vw, 54px);
+.editorial-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editorial-top .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.8px;
+}
+
+.edition-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.editorial-name {
+    font-size: clamp(38px, 11vw, 58px);
+    margin-top: 28px;
     line-height: 1.4;
 }
 
-.age {
+.editorial-composition {
+
+    position: relative;
+
+    min-height: 300px;
+
+    margin-top: 10px;
+    margin-bottom: 25px;
+
+}
+
+.big-age {
+
+    position: absolute;
+
+    top: -10px;
+    left: -12px;
+
     font-family: 'Cormorant Garamond', serif;
-    font-size: 135px;
-    line-height: 0.95;
-    margin: 8px auto;
+    font-size: clamp(180px, 52vw, 260px);
+    font-weight: 500;
+    font-style: italic;
 
-    background: linear-gradient(
-        110deg,
-        #785440,
-        #AD8B68,
-        #E8CEAD,
-        #96704D,
-        #785440
-    );
+    line-height: 1;
 
+    letter-spacing: -15px;
+
+    background: var(--metal);
     background-size: 200% auto;
+
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    animation: shimmer 5s linear infinite;
+    filter: drop-shadow(
+        1px 2px 0 #71483220
+    );
+
+    animation: metallicShine 6s linear infinite;
+
 }
 
-@keyframes shimmer {
+@keyframes metallicShine {
     to {
         background-position: 200% center;
     }
 }
 
-.age-label {
-    font-size: 11px;
+.editorial-photo {
+
+    position: absolute;
+
+    top: 35px;
+    right: 5px;
+
+    width: 48%;
+
+    padding: 6px 6px 23px;
+
+    background: var(--cream);
+
+    box-shadow:
+        0 15px 30px #71483235;
+
+    transform: rotate(8deg);
+
+}
+
+.editorial-photo img {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.photo-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.age-caption {
+
+    position: absolute;
+
+    top: 220px;
+    left: 12px;
+
+    font-size: 10px;
+    font-weight: 600;
     letter-spacing: 4px;
-    margin-bottom: 30px;
-    color: var(--mocha);
+
 }
 
-.invitation-text {
-    max-width: 360px;
-    margin: auto;
-    font-size: 15px;
-    line-height: 2.15;
+.editorial-star {
+    position: absolute;
+    color: var(--cream);
+    text-shadow: 0 2px 8px #B4826040;
 }
 
-.ornament {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+.star-one {
+    top: 5px;
+    right: 0;
+    font-size: 34px;
+}
 
-    color: var(--bronze);
+.star-two {
+    bottom: 0;
+    left: 30px;
+    font-size: 40px;
+}
+
+.star-three {
+    bottom: 20px;
+    right: 15px;
     font-size: 23px;
-    margin: 25px auto;
 }
 
-.ornament::before,
-.ornament::after {
-    content: '';
-    width: 55px;
-    height: 1px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #AD8B68,
-        transparent
-    );
+.invitation-copy {
+    position: relative;
+    text-align: center;
+    padding: 5px 5px 0;
 }
 
-/* =========================
-   DARK MOCHA CALENDAR
-========================= */
+.invitation-copy h2 {
+    font-size: 25px;
+    margin-bottom: 22px;
+}
+
+.invitation-copy p {
+    font-size: 14px;
+    line-height: 2.15;
+    max-width: 350px;
+    margin: auto;
+}
+
+.handwritten-heart {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    color: var(--chocolate);
+    margin-top: 20px;
+    transform: rotate(-12deg);
+}
+
+/* =====================================
+   03 — ROSE CALENDAR
+===================================== */
 
 .calendar-section {
+
+    padding: 55px 24px;
+
+    text-align: center;
+
     background:
         radial-gradient(
-            ellipse at top left,
-            #96704D,
-            transparent 70%
+            ellipse at 10% 90%,
+            #B48260,
+            transparent 65%
         ),
-        var(--espresso);
+        #C99D96;
 
-    color: var(--cream);
 }
 
 .calendar-section .eyebrow {
-    color: var(--champagne);
+    margin-bottom: 15px;
 }
 
-.calendar-card {
+.calendar-section .section-title {
+    margin-bottom: 35px;
+}
+
+.calendar-paper {
+
     position: relative;
-    max-width: 365px;
+
+    max-width: 380px;
     margin: auto;
 
-    background: #FFFFFF08;
-    border: 1px solid #D6BFA380;
+    padding: 28px 15px 25px;
 
-    padding: 30px 12px;
+    border-radius: 4px 4px 16px 16px;
+
+    background: var(--cream);
 
     box-shadow:
-        0 15px 35px #0002,
-        inset 0 0 25px #FFFFFF05;
+        0 18px 35px #71483225;
+
 }
 
-.calendar-card::before {
-    content: '';
+.calendar-rings {
+
     position: absolute;
-    inset: 5px;
-    border: 1px solid #D6BFA325;
-    pointer-events: none;
+
+    left: 0;
+    right: 0;
+    top: -12px;
+
+    display: flex;
+    justify-content: space-around;
+
+    padding: 0 30px;
+
+}
+
+.calendar-ring {
+
+    width: 10px;
+    height: 25px;
+
+    border-radius: 10px;
+
+    background: var(--metal);
+
+    box-shadow:
+        1px 2px 4px #71483235;
+
 }
 
 .calendar-month {
@@ -645,26 +1047,30 @@ body.opened .hero img {
 
 .calendar-year {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 29px;
+    font-size: 24px;
     letter-spacing: 5px;
-    color: var(--champagne);
-    margin: 5px 0 25px;
+    margin: 5px 0 20px;
+    color: var(--caramel);
 }
 
 .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 8px 0;
+    grid-template-columns:
+        repeat(7, minmax(0,1fr));
+    gap: 6px 0;
 }
 
 .weekday {
     font-size: 10px;
-    color: var(--champagne);
+    font-weight: 500;
+    color: var(--chocolate);
     padding-bottom: 10px;
 }
 
 .day {
+
     position: relative;
+
     height: 40px;
 
     display: grid;
@@ -673,35 +1079,51 @@ body.opened .hero img {
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
 
-    color: var(--cream);
 }
 
 .day.special {
     font-weight: 600;
-    color: #FFFFFF;
+    color: #A65F6C;
 }
 
 .day.special svg {
+
     position: absolute;
+
     width: 44px;
     height: 44px;
+
     overflow: visible;
+
     pointer-events: none;
+
+    transform: rotate(-8deg);
+
 }
 
-.day.special path {
-    stroke: #E8CEAD;
+.calendar-heart-path {
+
+    fill: none;
+    stroke: #B76E79;
     stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
     stroke-dasharray: 160;
     stroke-dashoffset: 0;
+
 }
 
-.js .day.special path {
+.js .calendar-heart-path {
     stroke-dashoffset: 160;
 }
 
-.js .calendar-section.visible .day.special path {
-    animation: drawHeart 1.5s 0.4s ease forwards;
+.js .calendar-section.visible
+.calendar-heart-path {
+
+    animation: drawHeart
+        1.6s .5s ease forwards;
+
 }
 
 @keyframes drawHeart {
@@ -710,118 +1132,85 @@ body.opened .hero img {
     }
 }
 
-.calendar-note {
-    margin-top: 25px;
+.event-date {
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 11vw, 54px);
+    font-weight: 500;
+
+    margin-top: 30px;
+
+}
+
+.event-weekday {
     font-size: 13px;
-    line-height: 2;
-    color: #E8CEAD;
+    margin-top: 5px;
 }
 
-/* =========================
-   SECOND PHOTO
-========================= */
-
-.photo-section {
-    padding: 35px 20px;
-
-    background: linear-gradient(
-        145deg,
-        #E8D3B9,
-        #B99A78
-    );
-}
-
-.photo-frame {
-    padding: 5px;
-    background: var(--metal);
-
-    box-shadow:
-        0 15px 35px #39251D35;
-
-    overflow: hidden;
-}
-
-.photo-frame img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-}
-
-/* =========================
-   EVENT DETAILS
-========================= */
+/* =====================================
+   04 — EVENT DETAILS
+===================================== */
 
 .details {
-    background: var(--cream);
+
+    padding: 55px 25px;
+
+    text-align: center;
+
+    background: var(--vanilla);
+
 }
 
-.detail-card {
-    position: relative;
-
-    padding: 30px 15px;
-    margin-bottom: 16px;
-
-    background: var(--white);
-    border: 1px solid var(--bronze);
-
-    box-shadow:
-        0 8px 25px #39251D0D;
+.details .eyebrow {
+    color: var(--caramel);
+    margin-bottom: 12px;
 }
 
-.detail-card::before {
-    content: '';
-    position: absolute;
-    inset: 5px;
-    border: 1px solid #AD8B6840;
-    pointer-events: none;
+.details .section-title {
+    margin-bottom: 40px;
 }
 
-.detail-icon {
-    width: 37px;
-    height: 37px;
+.location-icon,
+.clock-icon {
+
+    width: 40px;
+    height: 40px;
+
     margin: 0 auto 20px;
-    color: var(--mocha);
+
+    color: var(--caramel);
+
 }
 
-.detail-icon svg {
+.location-icon svg,
+.clock-icon svg {
+
     width: 100%;
     height: 100%;
+
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.3;
+    stroke-width: 1.4;
     stroke-linecap: round;
     stroke-linejoin: round;
+
 }
 
 .detail-label {
     font-size: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     margin-bottom: 15px;
-    color: var(--mocha);
+    font-weight: 500;
 }
 
 .venue-name {
     font-family: 'Noto Serif Armenian', serif;
-    font-size: 29px;
+    font-size: 34px;
+    margin-bottom: 25px;
 }
 
-.time-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(34px, 10vw, 47px);
-    line-height: 1.3;
-}
+.pill-button {
 
-.detail-note {
-    font-size: 13px;
-    line-height: 2;
-    margin-top: 15px;
-}
-
-/* =========================
-   METALLIC BUTTONS
-========================= */
-
-.button {
     position: relative;
 
     display: inline-flex;
@@ -829,63 +1218,489 @@ body.opened .hero img {
     justify-content: center;
     gap: 10px;
 
-    min-height: 52px;
-    padding: 15px 25px;
+    min-height: 50px;
 
-    border: 1px solid var(--bronze);
-    border-radius: 3px;
+    padding: 14px 25px;
 
-    background: linear-gradient(
-        125deg,
-        #39251D,
-        #785440,
-        #39251D
-    );
+    border: 1px solid transparent;
+    border-radius: 100px;
 
+    background: var(--chocolate);
     color: var(--cream);
-    text-decoration: none;
+
     font-size: 13px;
     font-weight: 500;
 
-    box-shadow:
-        0 5px 15px #39251D20;
+    text-decoration: none;
 
     overflow: hidden;
-    transition: transform 0.2s;
+
+    transition:
+        transform .2s,
+        background .3s;
+
 }
 
-.button:active {
-    transform: scale(0.97);
+.pill-button:active {
+    transform: scale(.97);
 }
 
-.button:disabled {
-    opacity: 0.7;
+.pill-button:disabled {
+    opacity: .6;
     cursor: wait;
 }
 
-.button::after {
-    content: '';
+.map-button {
+    background: var(--rose);
+    color: var(--deep);
+    border-color: #71483225;
+}
+
+.map-button svg {
+    width: 15px;
+    height: 15px;
+}
+
+.details-divider {
+
+    width: 85%;
+
+    margin: 40px auto;
+
+    border: none;
+    border-top: 1px dashed var(--rose);
+
+}
+
+.time-layout {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    margin-top: 20px;
+
+}
+
+.time-value {
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 11vw, 54px);
+
+    line-height: 1;
+
+}
+
+.time-caption {
+    font-size: 10px;
+    margin-top: 12px;
+    color: var(--chocolate);
+}
+
+.time-dash {
+    font-size: 20px;
+    color: var(--caramel);
+    margin-top: -20px;
+}
+
+.detail-note {
+    font-size: 13px;
+    line-height: 2;
+    margin-top: 25px;
+}
+
+/* =====================================
+   05 — FLOATING SCRAPBOOK
+===================================== */
+
+.scrapbook {
+
+    padding: 40px 20px 35px;
+
+    background:
+        radial-gradient(
+            ellipse at top left,
+            #D4AA92,
+            transparent 60%
+        ),
+        var(--caramel);
+
+    overflow: hidden;
+
+    color: var(--cream);
+
+}
+
+.scrapbook-heading {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.scrapbook-stage {
+
+    position: relative;
+
+    height: clamp(390px, 115vw, 530px);
+
+    max-width: 430px;
+    margin: auto;
+
+}
+
+.scrap-photo {
+
     position: absolute;
+
+    width: 59%;
+
+    padding: 7px 7px 25px;
+
+    background: var(--cream);
+
+    color: var(--chocolate);
+
+    box-shadow:
+        0 18px 30px #54332635;
+
+    will-change: transform;
+
+}
+
+.scrap-photo img {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.scrap-photo.first {
+    left: 2%;
+    top: 20px;
+
+    transform:
+        translateY(var(--float-one, 0px))
+        rotate(-9deg);
+
+    z-index: 1;
+}
+
+.scrap-photo.second {
+    right: 2%;
+    bottom: 30px;
+
+    transform:
+        translateY(var(--float-two, 0px))
+        rotate(9deg);
+
+    z-index: 2;
+}
+
+.tape {
+
+    position: absolute;
+
+    top: -8px;
+    left: 50%;
+
+    width: 65px;
+    height: 23px;
+
+    background: #E8CBB7C0;
+
+    transform:
+        translateX(-50%)
+        rotate(-5deg);
+
+    box-shadow:
+        0 2px 4px #71483210;
+
+}
+
+.scrap-star {
+
+    position: absolute;
+
+    top: 35px;
+    right: 10px;
+
+    font-size: 45px;
+
+    color: var(--vanilla);
+
+    animation: twinkle 3s infinite alternate;
+
+}
+
+.scrap-heart {
+
+    position: absolute;
+
+    bottom: 60px;
+    left: 10px;
+
+    font-family: Georgia, serif;
+    font-size: 65px;
+
+    transform: rotate(-15deg);
+
+    color: var(--peach);
+
+}
+
+.scrap-caption {
+
+    text-align: center;
+
+    font-family: 'Noto Serif Armenian', serif;
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    margin-top: 10px;
+
+}
+
+/* =====================================
+   06 — RSVP
+===================================== */
+
+.rsvp {
+
+    padding: 55px 25px 60px;
+
+    background:
+        radial-gradient(
+            ellipse at bottom right,
+            #C99D96,
+            transparent 65%
+        ),
+        var(--peach);
+
+    text-align: center;
+
+}
+
+.rsvp-heart {
+
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+}
+
+.rsvp-heart svg {
+    width: 100%;
+    height: 100%;
+}
+
+.rsvp h2 {
+    font-size: clamp(24px, 6vw, 31px);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.rsvp-description {
+
+    font-size: 13px;
+    line-height: 2;
+
+    max-width: 320px;
+
+    margin: 0 auto 30px;
+
+}
+
+.rsvp-form {
+
+    max-width: 390px;
+    margin: auto;
+
+    text-align: left;
+
+}
+
+.field-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.name-input {
+
+    width: 100%;
+    min-height: 56px;
+
+    border: 1px solid #71483225;
+    border-radius: 100px;
+
+    background: var(--cream);
+
+    padding: 15px 20px;
+
+    color: var(--deep);
+
+    font-size: 16px;
+
+    outline: none;
+
+    margin-bottom: 25px;
+
+    transition:
+        border-color .3s,
+        box-shadow .3s;
+
+}
+
+.name-input::placeholder {
+    font-size: 13px;
+    color: #94776B;
+}
+
+.name-input:focus {
+    border-color: var(--chocolate);
+    box-shadow: 0 0 0 3px #71483210;
+}
+
+.attendance-options {
+    display: grid;
+    gap: 12px;
+}
+
+.radio-option {
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-height: 58px;
+
+    padding: 14px 18px;
+
+    border: 1px solid #71483225;
+    border-radius: 30px;
+
+    background: var(--cream);
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    cursor: pointer;
+
+    transition:
+        background .3s,
+        color .3s,
+        transform .2s;
+
+}
+
+.radio-option input {
+
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+
+}
+
+.radio-circle {
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+    border: 1px solid var(--caramel);
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+}
+
+.radio-circle::after {
+
+    content: '';
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: var(--chocolate);
+
+    transform: scale(0);
+
+    transition: transform .2s;
+
+}
+
+.radio-option input:checked
++ .radio-circle::after {
+    transform: scale(1);
+}
+
+.radio-option:has(input:checked) {
+    background: var(--rose);
+    border-color: var(--chocolate);
+    color: var(--deep);
+}
+
+.radio-option:has(input:focus-visible) {
+    outline: 2px solid var(--deep);
+    outline-offset: 3px;
+}
+
+.submit-button {
+
+    width: 100%;
+
+    min-height: 56px;
+
+    margin-top: 25px;
+
+    box-shadow:
+        0 8px 20px #71483225;
+
+}
+
+.submit-button::after {
+
+    content: '';
+
+    position: absolute;
+
     top: 0;
     left: -100%;
+
     width: 50%;
     height: 100%;
 
     background: linear-gradient(
         90deg,
         transparent,
-        #FFFFFF40,
+        #FFFFFF35,
         transparent
     );
 
     transform: skewX(-20deg);
+
     animation: buttonShine 5s infinite;
+
     pointer-events: none;
+
 }
 
 @keyframes buttonShine {
 
-    0%, 65% {
+    0%, 60% {
         left: -100%;
     }
 
@@ -895,286 +1710,54 @@ body.opened .hero img {
 
 }
 
-.map-button {
-    margin-top: 25px;
-}
-
-/* =========================
-   POLAROID GALLERY
-========================= */
-
-.gallery-section {
-    background:
-        radial-gradient(
-            ellipse at top,
-            #96704D,
-            transparent 75%
-        ),
-        var(--espresso);
-
-    padding: 45px 20px;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    align-items: start;
-}
-
-.gallery-item {
-    background: var(--white);
-    padding: 5px 5px 24px;
-
-    box-shadow:
-        0 10px 25px #0004;
-
-    transition: transform 1.1s ease;
-}
-
-.gallery-item:first-child {
-    transform: rotate(-3deg);
-}
-
-.gallery-item:last-child {
-    margin-top: 40px;
-    transform: rotate(3deg);
-}
-
-.js .gallery-item:first-child {
-    transform: translateX(-25px) rotate(-8deg);
-}
-
-.js .gallery-item:last-child {
-    transform: translateX(25px) rotate(8deg);
-}
-
-.js .gallery-section.visible .gallery-item:first-child {
-    transform: translateX(0) rotate(-3deg);
-}
-
-.js .gallery-section.visible .gallery-item:last-child {
-    transform: translateX(0) rotate(3deg);
-}
-
-.gallery-item img {
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-}
-
-/* =========================
-   RSVP FORM
-========================= */
-
-.rsvp {
-    background: var(--cream);
-    padding: 55px 20px;
-}
-
-.rsvp-card {
-    position: relative;
-    padding: 35px 20px;
-
-    border: 1px solid var(--bronze);
-
-    background: linear-gradient(
-        150deg,
-        #FFFAF3,
-        #E8D6BF
-    );
-
-    box-shadow:
-        0 12px 30px #39251D10;
-}
-
-.rsvp-card::before {
-    content: '';
-    position: absolute;
-    inset: 6px;
-    border: 1px solid #AD8B6840;
-    pointer-events: none;
-}
-
-.rsvp-icon {
-    font-size: 38px;
-    color: var(--mocha);
-    margin-bottom: 20px;
-}
-
-.rsvp h2 {
-    font-size: 25px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.rsvp-description {
-    font-size: 13px;
-    line-height: 2;
-    margin-bottom: 30px;
-}
-
-form {
-    position: relative;
-    text-align: left;
-}
-
-.field-label {
-    display: block;
-    font-size: 12px;
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-.name-input {
-    width: 100%;
-    min-height: 54px;
-
-    padding: 15px;
-    margin-bottom: 25px;
-
-    background: var(--white);
-    border: 1px solid var(--bronze);
-    border-radius: 3px;
-
-    outline: none;
-    color: var(--espresso);
-    font-size: 16px;
-
-    transition: border-color 0.3s;
-}
-
-.name-input:focus {
-    border-color: var(--espresso);
-    box-shadow: 0 0 0 2px #78544020;
-}
-
-.name-input::placeholder {
-    color: #927B68;
-    font-size: 13px;
-}
-
-.attendance-options {
-    display: grid;
-    gap: 12px;
-}
-
-.radio-option {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    min-height: 56px;
-    padding: 15px 12px;
-
-    border: 1px solid var(--bronze);
-    background: var(--white);
-    border-radius: 3px;
-
-    cursor: pointer;
-    font-size: 13px;
-    line-height: 1.7;
-
-    transition:
-        background 0.3s,
-        color 0.3s,
-        border-color 0.3s;
-}
-
-.radio-option input {
-    position: absolute;
-    opacity: 0;
-    width: 1px;
-    height: 1px;
-}
-
-.radio-circle {
-    width: 19px;
-    height: 19px;
-
-    border: 1px solid var(--bronze);
-    border-radius: 50%;
-
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-}
-
-.radio-circle::after {
-    content: '';
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--champagne);
-
-    transform: scale(0);
-    transition: transform 0.2s;
-}
-
-.radio-option input:checked + .radio-circle::after {
-    transform: scale(1);
-}
-
-.radio-option:has(input:checked) {
-    background: var(--mocha);
-    color: var(--white);
-    border-color: var(--espresso);
-}
-
-.radio-option:has(input:focus-visible) {
-    outline: 2px solid var(--espresso);
-    outline-offset: 2px;
-}
-
-.submit-button {
-    width: 100%;
-    margin-top: 25px;
-}
-
 .form-error {
-    color: #873C25;
+
+    color: #873C35;
+
     font-size: 12px;
     line-height: 1.8;
+
     text-align: center;
-    margin-top: 12px;
+
+    margin-top: 15px;
+
 }
 
-/* =========================
+/* =====================================
    RSVP CONFIRMATION
-========================= */
+===================================== */
 
 .success {
     display: none;
-    padding: 20px 0;
+    padding: 25px 0;
 }
 
 .success.show {
     display: block;
-    animation: successAppear 0.6s ease;
+    animation: successAppear .7s ease;
 }
 
 @keyframes successAppear {
 
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: scale(.92);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
 
 }
 
 .success-circle {
-    width: 78px;
-    height: 78px;
+
+    width: 85px;
+    height: 85px;
 
     margin: 0 auto 25px;
 
-    border: 1px solid var(--bronze);
     border-radius: 50%;
 
     background: var(--metal);
@@ -1183,23 +1766,31 @@ form {
     place-items: center;
 
     box-shadow:
-        0 8px 20px #39251D20;
+        0 10px 25px #71483225;
+
 }
 
 .success-circle svg {
-    width: 35px;
+
+    width: 38px;
+    height: 38px;
+
     fill: none;
-    stroke: var(--espresso);
-    stroke-width: 1.7;
+    stroke: var(--chocolate);
+    stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
+
 }
 
 .success-circle path {
+
     stroke-dasharray: 50;
     stroke-dashoffset: 50;
 
-    animation: drawCheck 0.8s 0.3s forwards;
+    animation: drawCheck
+        .8s .2s forwards;
+
 }
 
 @keyframes drawCheck {
@@ -1209,49 +1800,63 @@ form {
 }
 
 .success h3 {
-    font-size: 26px;
-    margin-bottom: 15px;
+    font-size: 27px;
+    margin-bottom: 20px;
 }
 
 .success p {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 2;
+    overflow-wrap: anywhere;
 }
 
 .edit-response {
-    margin-top: 25px;
+
     border: none;
     background: none;
-    color: var(--mocha);
+
+    color: var(--chocolate);
+
+    font-size: 12px;
 
     text-decoration: underline;
     text-underline-offset: 4px;
 
-    font-size: 12px;
     min-height: 44px;
+
+    margin-top: 20px;
+
 }
 
-/* =========================
+/* =====================================
    FOOTER
-========================= */
+===================================== */
 
 footer {
-    padding: 55px 20px 35px;
+
+    position: relative;
+
+    padding: 55px 20px 30px;
+
+    text-align: center;
 
     background:
         radial-gradient(
             ellipse at top,
-            #785440,
-            transparent 70%
+            #B48260,
+            transparent 80%
         ),
-        var(--dark);
+        var(--chocolate);
 
     color: var(--cream);
+
+    overflow: hidden;
+
 }
 
-.footer-heart {
-    font-size: 35px;
-    color: var(--champagne);
+.footer-star {
+    font-size: 30px;
+    color: var(--peach);
     margin-bottom: 20px;
 }
 
@@ -1261,48 +1866,63 @@ footer h2 {
 }
 
 .footer-name {
+
     font-family: 'Noto Serif Armenian', serif;
-    font-size: 38px;
-    margin: 20px 0;
-    color: var(--champagne);
+
+    font-size: 42px;
+
+    margin: 15px 0 30px;
+
+    color: var(--peach);
+
 }
 
 .footer-line {
-    width: 60px;
+
+    width: 65px;
     height: 1px;
+
+    margin: 30px auto;
+
     background: var(--metal);
-    margin: 35px auto;
+
 }
 
 .brand {
+
     font-family: 'Cormorant Garamond', serif;
-    font-size: 27px;
+
+    font-size: 30px;
+
     letter-spacing: 5px;
-    color: var(--champagne);
+
 }
 
 .brand-caption {
-    font-size: 9px;
-    letter-spacing: 1px;
+    font-size: 10px;
+    letter-spacing: .5px;
     margin-top: 10px;
-    color: var(--champagne);
+    color: var(--peach);
 }
 
-/* =========================
+/* =====================================
    SCROLL ANIMATIONS
-========================= */
+===================================== */
 
 .reveal {
     opacity: 1;
 }
 
 .js .reveal {
+
     opacity: 0;
+
     transform: translateY(30px);
 
     transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+        opacity .85s ease,
+        transform .85s ease;
+
 }
 
 .js .reveal.visible {
@@ -1310,23 +1930,45 @@ footer h2 {
     transform: translateY(0);
 }
 
-/* =========================
+.js .editorial-photo {
+    transform:
+        translateX(35px)
+        rotate(14deg);
+
+    opacity: 0;
+
+    transition:
+        transform 1.1s .2s ease,
+        opacity .8s .2s;
+}
+
+.js .editorial.visible .editorial-photo {
+    transform: translateX(0) rotate(8deg);
+    opacity: 1;
+}
+
+/* =====================================
    MOBILE OPTIMIZATION
-========================= */
+===================================== */
 
 @media (max-width: 380px) {
 
-    section {
+    .editorial {
         padding-left: 18px;
         padding-right: 18px;
     }
 
-    .rsvp-card {
-        padding: 30px 15px;
+    .editorial-composition {
+        min-height: 270px;
     }
 
-    .rsvp h2 {
-        font-size: 22px;
+    .age-caption {
+        top: 195px;
+    }
+
+    .calendar-section {
+        padding-left: 17px;
+        padding-right: 17px;
     }
 
     .weekday {
@@ -1334,32 +1976,59 @@ footer h2 {
     }
 
     .day {
-        font-size: 19px;
+        font-size: 20px;
     }
 
     .day.special svg {
-        width: 38px;
-        height: 38px;
+        width: 39px;
+        height: 39px;
     }
 
-    .intro-title {
-        letter-spacing: 2px;
+    .rsvp {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .radio-option {
+        font-size: 12px;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .time-layout {
+        gap: 12px;
+    }
+
+}
+
+@media (min-width: 480px) {
+
+    .editorial-composition {
+        min-height: 380px;
+    }
+
+    .age-caption {
+        top: 280px;
     }
 
 }
 
 @media (max-height: 550px) {
 
-    .intro-title {
-        margin-bottom: 30px;
+    .intro-heading {
+        margin-bottom: 25px;
     }
 
     .envelope {
-        width: min(230px, 70vw);
+        width: min(220px, 65vw);
     }
 
     .tap-text {
-        margin-top: 25px;
+        margin-top: 20px;
+    }
+
+    .intro-brand {
+        bottom: 15px;
     }
 
 }
@@ -1367,7 +2036,13 @@ footer h2 {
 @media (min-width: 700px) {
 
     main {
-        box-shadow: 0 0 70px #0004;
+        box-shadow: 0 0 70px #71483220;
+    }
+
+    .music-button {
+        right: calc(
+            (100vw - 560px) / 2 + 18px
+        );
     }
 
 }
@@ -1377,19 +2052,25 @@ footer h2 {
     *,
     *::before,
     *::after {
+
         animation: none !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
         scroll-behavior: auto !important;
+
+    }
+
+    .js .reveal,
+    .js .editorial-photo {
+        opacity: 1;
     }
 
     .js .reveal {
-        opacity: 1;
         transform: none;
     }
 
-    .js .day.special path,
+    .calendar-heart-path,
     .success-circle path {
-        stroke-dashoffset: 0;
+        stroke-dashoffset: 0 !important;
     }
 
 }
@@ -1399,23 +2080,69 @@ footer h2 {
 
 <body>
 
-<!-- =====================
+<!-- ==================================
+     BACKGROUND MUSIC
+=================================== -->
+
+<audio
+    id="background-music"
+    src="dancing-queen.mp3"
+    preload="none"
+    loop
+></audio>
+
+<button
+    type="button"
+    class="music-button"
+    id="music-button"
+    aria-label="Միացնել երաժշտությունը"
+    aria-pressed="false"
+>
+
+    <svg
+        class="muted-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+    >
+
+        <path d="M9 18V5l11-2v13"/>
+
+        <ellipse cx="6" cy="18" rx="3" ry="2"/>
+
+        <ellipse cx="17" cy="16" rx="3" ry="2"/>
+
+        <path d="M3 3l18 18"/>
+
+    </svg>
+
+    <div class="sound-bars" aria-hidden="true">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+</button>
+
+<!-- ==================================
      OPENING ENVELOPE
-====================== -->
+=================================== -->
 
 <div class="intro" id="intro">
 
+    <div class="intro-outline"></div>
+
     <div
-        class="particles"
-        id="particles"
+        class="sparkles"
+        id="sparkles"
         aria-hidden="true"
     ></div>
 
-    <div class="intro-border"></div>
-
     <div class="intro-content">
 
-        <p class="intro-title">
+        <p class="intro-heading">
             ՀՐԱՎԻՐԱՏՈՄՍ
         </p>
 
@@ -1431,6 +2158,10 @@ footer h2 {
 
                 <div class="letter">
 
+                    <span class="letter-star">
+                        ✦
+                    </span>
+
                     <span class="letter-name">
                         Մարիա
                     </span>
@@ -1442,11 +2173,97 @@ footer h2 {
                 </div>
 
                 <div class="envelope-left"></div>
+
                 <div class="envelope-right"></div>
+
                 <div class="envelope-bottom"></div>
+
                 <div class="flap"></div>
 
-                <div class="seal">11</div>
+                <div class="heart-seal">
+
+                    <svg viewBox="0 0 100 100">
+
+                        <defs>
+
+                            <linearGradient
+                                id="heart-metal"
+                                x1="0%"
+                                y1="0%"
+                                x2="100%"
+                                y2="100%"
+                            >
+
+                                <stop
+                                    offset="0%"
+                                    stop-color="#89594E"
+                                />
+
+                                <stop
+                                    offset="25%"
+                                    stop-color="#E8B9A7"
+                                />
+
+                                <stop
+                                    offset="42%"
+                                    stop-color="#FFF2DF"
+                                />
+
+                                <stop
+                                    offset="60%"
+                                    stop-color="#B77B68"
+                                />
+
+                                <stop
+                                    offset="80%"
+                                    stop-color="#F5D6C2"
+                                />
+
+                                <stop
+                                    offset="100%"
+                                    stop-color="#9E6455"
+                                />
+
+                            </linearGradient>
+
+                        </defs>
+
+                        <path
+                            d="M50 88
+                               C38 76 8 56 8 33
+                               C8 9 36 5 50 27
+                               C64 5 92 9 92 33
+                               C92 56 62 76 50 88Z"
+                            fill="url(#heart-metal)"
+                            stroke="#A16D5D"
+                            stroke-width="1.5"
+                        />
+
+                        <path
+                            d="M50 80
+                               C36 68 15 50 15 33
+                               C15 17 36 12 50 35
+                               C64 12 85 17 85 33
+                               C85 50 64 68 50 80Z"
+                            fill="none"
+                            stroke="#FFF2DF"
+                            stroke-opacity=".5"
+                        />
+
+                        <text
+                            x="50"
+                            y="56"
+                            text-anchor="middle"
+                            font-family="Cormorant Garamond"
+                            font-size="30"
+                            fill="#714832"
+                        >
+                            11
+                        </text>
+
+                    </svg>
+
+                </div>
 
             </div>
 
@@ -1458,13 +2275,37 @@ footer h2 {
 
     </div>
 
+    <div class="intro-brand">
+        Invitéa
+    </div>
+
 </div>
+
+<!-- CINEMATIC TRANSITION -->
+
+<div
+    class="cinematic"
+    id="cinematic"
+    aria-hidden="true"
+>
+
+    <img src="IMG_5941.JPG" alt="">
+
+</div>
+
+<div
+    class="confetti-layer"
+    id="confetti-layer"
+    aria-hidden="true"
+></div>
+
+<!-- ==================================
+     MAIN INVITATION
+=================================== -->
 
 <main id="main-content">
 
-<!-- =====================
-     FIRST PHOTO
-====================== -->
+<!-- 01 — FIRST PHOTO -->
 
 <header class="hero">
 
@@ -1474,11 +2315,11 @@ footer h2 {
         fetchpriority="high"
     >
 
-    <div class="hero-frame"></div>
+    <div class="hero-outline"></div>
 
     <a
         href="#invitation"
-        class="scroll-indicator"
+        class="scroll-button"
         aria-label="Շարունակել"
     >
 
@@ -1497,58 +2338,100 @@ footer h2 {
 
 </header>
 
-<!-- =====================
-     INVITATION
-====================== -->
+<!-- 02 — BIRTHDAY EDITORIAL -->
 
-<section class="invitation reveal" id="invitation">
+<section
+    class="editorial reveal"
+    id="invitation"
+>
 
-    <p class="eyebrow">
-        ԾՆՆԴՅԱՆ ՀՐԱՎԻՐԱՏՈՄՍ
-    </p>
+    <div class="editorial-top">
 
-    <h1 class="invitation-name">
+        <p class="eyebrow">
+            ԾՆՆԴՅԱՆ ՀՐԱՎԻՐԱՏՈՄՍ
+        </p>
+
+        <span class="edition-number">
+            No. 11
+        </span>
+
+    </div>
+
+    <h1 class="editorial-name">
         Մարիա
     </h1>
 
-    <div class="age">11</div>
+    <div class="editorial-composition">
 
-    <p class="age-label">
-        ՏԱՐԵԿԱՆ
-    </p>
+        <div class="big-age">
+            11
+        </div>
 
-    <div class="ornament">✦</div>
+        <div class="editorial-photo">
 
-    <h2 class="section-title">
-        Սիրելի՛ ընկերներ
-    </h2>
+            <img
+                src="IMG_5942.JPG"
+                alt="Մարիայի լուսանկարը"
+                loading="lazy"
+            >
 
-    <p class="invitation-text">
+            <p class="photo-caption">
+                23.11.2026
+            </p>
 
-        Սիրով հրավիրում եմ ձեզ՝ միասին
-        նշելու իմ 11-րդ տարեդարձը։
+        </div>
 
-        <br><br>
+        <p class="age-caption">
+            ՏԱՐԵԿԱՆ
+        </p>
 
-        Մեզ սպասվում է ուրախությամբ,
-        ժպիտներով և անմոռանալի պահերով
-        լի մի գեղեցիկ օր։
+        <span class="editorial-star star-one">
+            ✦
+        </span>
 
-        <br><br>
+        <span class="editorial-star star-two">
+            ✧
+        </span>
 
-        Շատ ուրախ կլինեմ այս
-        առանձնահատուկ օրը ձեզ հետ
-        անցկացնելու համար։
+        <span class="editorial-star star-three">
+            ✦
+        </span>
 
-    </p>
+    </div>
 
-    <div class="ornament">♡</div>
+    <div class="invitation-copy">
+
+        <h2>
+            Սիրելի՛ ընկերներ
+        </h2>
+
+        <p>
+
+            Սիրով հրավիրում եմ ձեզ՝ միասին
+            նշելու իմ 11-րդ տարեդարձը։
+
+            <br><br>
+
+            Մեզ սպասվում է ուրախությամբ,
+            ժպիտներով և անմոռանալի պահերով
+            լի մի գեղեցիկ օր։
+
+            <br><br>
+
+            Եկե՛ք միասին ստեղծենք
+            նոր ու գեղեցիկ հիշողություններ։
+
+        </p>
+
+        <div class="handwritten-heart">
+            ♡
+        </div>
+
+    </div>
 
 </section>
 
-<!-- =====================
-     NOVEMBER CALENDAR
-====================== -->
+<!-- 03 — CALENDAR -->
 
 <section class="calendar-section reveal">
 
@@ -1560,7 +2443,17 @@ footer h2 {
         Սպասված օրը
     </h2>
 
-    <div class="calendar-card">
+    <div class="calendar-paper">
+
+        <div class="calendar-rings">
+
+            <span class="calendar-ring"></span>
+            <span class="calendar-ring"></span>
+            <span class="calendar-ring"></span>
+            <span class="calendar-ring"></span>
+            <span class="calendar-ring"></span>
+
+        </div>
 
         <div class="calendar-month">
             Նոյեմբեր
@@ -1584,35 +2477,17 @@ footer h2 {
 
     </div>
 
-    <p class="calendar-note">
-        23 նոյեմբերի, 2026 թ.
-        <br>
+    <p class="event-date">
+        23.11.2026
+    </p>
+
+    <p class="event-weekday">
         Երկուշաբթի
     </p>
 
 </section>
 
-<!-- =====================
-     SECOND PHOTO
-====================== -->
-
-<section class="photo-section reveal">
-
-    <div class="photo-frame">
-
-        <img
-            src="IMG_5942.JPG"
-            alt="Մարիայի լուսանկարը"
-            loading="lazy"
-        >
-
-    </div>
-
-</section>
-
-<!-- =====================
-     EVENT DETAILS
-====================== -->
+<!-- 04 — EVENT DETAILS -->
 
 <section class="details reveal">
 
@@ -1624,90 +2499,125 @@ footer h2 {
         Տոնի մանրամասները
     </h2>
 
-    <!-- LOCATION -->
+    <div class="location-icon">
 
-    <div class="detail-card">
+        <svg viewBox="0 0 32 32">
 
-        <div class="detail-icon">
+            <path
+                d="M16 29S5 18 5 12
+                   a11 11 0 0 1 22 0
+                   c0 6-11 17-11 17Z"
+            />
 
-            <svg viewBox="0 0 32 32">
+            <circle cx="16" cy="12" r="4"/>
 
-                <path d="M16 29S5 18 5 12a11 11 0 0 1 22 0c0 6-11 17-11 17Z"/>
+        </svg>
 
-                <circle cx="16" cy="12" r="4"/>
+    </div>
 
-            </svg>
+    <p class="detail-label">
+        ՏՈՆԱԿԱՏԱՐՈՒԹՅԱՆ ՎԱՅՐԸ
+    </p>
 
-        </div>
+    <h3 class="venue-name">
+        Ունց-Ունց
+    </h3>
 
-        <p class="detail-label">
-            ՏՈՆԱԿԱՏԱՐՈՒԹՅԱՆ ՎԱՅՐԸ
-        </p>
+    <a
+        href="https://maps.app.goo.gl/aH7XU68Xqv7oUrGE9"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="pill-button map-button"
+    >
 
-        <p class="venue-name">
-            Ունց-Ունց
-        </p>
+        Ինչպե՞ս հասնել
 
-        <a
-            href="https://maps.app.goo.gl/aH7XU68Xqv7oUrGE9"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button map-button"
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
         >
-            Ինչպե՞ս հասնել ↗
-        </a>
+
+            <path d="M6 18L18 6M7 6h11v11"/>
+
+        </svg>
+
+    </a>
+
+    <hr class="details-divider">
+
+    <div class="clock-icon">
+
+        <svg viewBox="0 0 32 32">
+
+            <circle cx="16" cy="16" r="13"/>
+
+            <path d="M16 7v9l6 4"/>
+
+        </svg>
 
     </div>
 
-    <!-- TIME -->
+    <p class="detail-label">
+        ՏՈՆԱԿԱՏԱՐՈՒԹՅԱՆ ԺԱՄԸ
+    </p>
 
-    <div class="detail-card">
+    <div class="time-layout">
 
-        <div class="detail-icon">
+        <div>
 
-            <svg viewBox="0 0 32 32">
+            <p class="time-value">
+                13:30
+            </p>
 
-                <circle cx="16" cy="16" r="13"/>
-
-                <path d="M16 7v9l6 4"/>
-
-            </svg>
+            <p class="time-caption">
+                Սկիզբ
+            </p>
 
         </div>
 
-        <p class="detail-label">
-            ՏՈՆԱԿԱՏԱՐՈՒԹՅԱՆ ԺԱՄԸ
-        </p>
+        <span class="time-dash">
+            —
+        </span>
 
-        <div class="time-value">
-            13:30 — 17:30
+        <div>
+
+            <p class="time-value">
+                17:30
+            </p>
+
+            <p class="time-caption">
+                Ավարտ
+            </p>
+
         </div>
-
-        <p class="detail-note">
-
-            Սպասում եմ ձեզ ժամը 13:30-ին։
-
-            <br>
-
-            Տոնը կավարտվի ժամը 17:30-ին։
-
-        </p>
 
     </div>
+
+    <p class="detail-note">
+        Սիրով սպասում եմ ձեզ ժամը 13:30-ին։
+    </p>
 
 </section>
 
-<!-- =====================
-     PHOTO GALLERY
-====================== -->
+<!-- 05 — SCRAPBOOK -->
 
-<section class="gallery-section reveal">
+<section class="scrapbook reveal">
 
-    <div class="ornament">✦</div>
+    <p class="scrapbook-heading">
+        ԺՊԻՏՆԵՐ ԵՎ ՀԻՇՈՂՈՒԹՅՈՒՆՆԵՐ
+    </p>
 
-    <div class="gallery">
+    <div class="scrapbook-stage" id="scrapbook">
 
-        <div class="gallery-item">
+        <span class="scrap-star">
+            ✦
+        </span>
+
+        <div class="scrap-photo first">
+
+            <div class="tape"></div>
 
             <img
                 src="IMG_5948.JPG"
@@ -1715,9 +2625,15 @@ footer h2 {
                 loading="lazy"
             >
 
+            <p class="photo-caption">
+                ♡
+            </p>
+
         </div>
 
-        <div class="gallery-item">
+        <div class="scrap-photo second">
+
+            <div class="tape"></div>
 
             <img
                 src="IMG_5949.JPG"
@@ -1725,160 +2641,224 @@ footer h2 {
                 loading="lazy"
             >
 
+            <p class="photo-caption">
+                23.11.2026
+            </p>
+
         </div>
+
+        <span class="scrap-heart">
+            ♡
+        </span>
 
     </div>
 
-    <div class="ornament">♡</div>
+    <p class="scrap-caption">
+
+        Ամենագեղեցիկ պահերը՝
+        <br>
+        միասին։
+
+    </p>
 
 </section>
 
-<!-- =====================
-     RSVP
-====================== -->
+<!-- 06 — RSVP -->
 
 <section class="rsvp reveal">
 
-    <div class="rsvp-card">
+    <div id="form-content">
 
-        <div id="form-content">
+        <div class="rsvp-heart">
 
-            <div class="rsvp-icon">♡</div>
+            <svg viewBox="0 0 100 100">
 
-            <h2>
-                Մասնակցության հաստատում
-            </h2>
+                <defs>
 
-            <p class="rsvp-description">
+                    <linearGradient
+                        id="rsvp-metal"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                    >
 
-                Խնդրում եմ նախապես տեղեկացնել՝
-                կկարողանա՞ք մասնակցել
-                իմ ծննդյան տոնին։
+                        <stop
+                            offset="0%"
+                            stop-color="#89594E"
+                        />
 
-            </p>
+                        <stop
+                            offset="35%"
+                            stop-color="#FFF2DF"
+                        />
 
-            <form id="rsvp-form">
+                        <stop
+                            offset="65%"
+                            stop-color="#B77B68"
+                        />
 
-                <label
-                    class="field-label"
-                    for="guest-name"
-                >
-                    Ձեր անունը և ազգանունը
-                </label>
+                        <stop
+                            offset="100%"
+                            stop-color="#E8B9A7"
+                        />
 
-                <input
-                    type="text"
-                    id="guest-name"
-                    name="guest_name"
-                    class="name-input"
-                    placeholder="Անուն, ազգանուն"
-                    autocomplete="name"
-                    maxlength="100"
-                    required
-                >
+                    </linearGradient>
 
-                <p class="field-label">
-                    Կմասնակցե՞ք տոնին
-                </p>
+                </defs>
 
-                <div class="attendance-options">
+                <path
+                    d="M50 88
+                       C38 76 8 56 8 33
+                       C8 9 36 5 50 27
+                       C64 5 92 9 92 33
+                       C92 56 62 76 50 88Z"
+                    fill="url(#rsvp-metal)"
+                    stroke="#B48260"
+                />
 
-                    <label class="radio-option">
-
-                        <input
-                            type="radio"
-                            name="attendance"
-                            value="yes"
-                            required
-                        >
-
-                        <span class="radio-circle"></span>
-
-                        <span>
-                            Այո՛, սիրով կմասնակցեմ
-                        </span>
-
-                    </label>
-
-                    <label class="radio-option">
-
-                        <input
-                            type="radio"
-                            name="attendance"
-                            value="no"
-                        >
-
-                        <span class="radio-circle"></span>
-
-                        <span>
-                            Ցավոք, չեմ կարողանա մասնակցել
-                        </span>
-
-                    </label>
-
-                </div>
-
-                <button
-                    type="submit"
-                    class="button submit-button"
-                    id="submit-button"
-                >
-                    Հաստատել պատասխանը
-                </button>
-
-                <p
-                    class="form-error"
-                    id="form-error"
-                    aria-live="polite"
-                ></p>
-
-            </form>
+            </svg>
 
         </div>
 
-        <!-- CONFIRMATION -->
+        <h2>
+            Մասնակցության
+            <br>
+            հաստատում
+        </h2>
 
-        <div
-            class="success"
-            id="success"
-            aria-live="polite"
-        >
+        <p class="rsvp-description">
 
-            <div class="success-circle">
+            Խնդրում եմ նախապես տեղեկացնել՝
+            կկարողանա՞ք մասնակցել
+            իմ ծննդյան տոնին։
 
-                <svg viewBox="0 0 32 32">
-                    <path d="M7 16l6 6L26 9"/>
-                </svg>
+        </p>
+
+        <form class="rsvp-form" id="rsvp-form">
+
+            <label
+                class="field-label"
+                for="guest-name"
+            >
+                Ձեր անունը և ազգանունը
+            </label>
+
+            <input
+                type="text"
+                id="guest-name"
+                name="guest_name"
+                class="name-input"
+                placeholder="Անուն, ազգանուն"
+                autocomplete="name"
+                maxlength="100"
+                required
+            >
+
+            <p class="field-label">
+                Կմասնակցե՞ք տոնին
+            </p>
+
+            <div class="attendance-options">
+
+                <label class="radio-option">
+
+                    <input
+                        type="radio"
+                        name="attendance"
+                        value="yes"
+                        required
+                    >
+
+                    <span class="radio-circle"></span>
+
+                    <span>
+                        Այո՛, սիրով կմասնակցեմ
+                    </span>
+
+                </label>
+
+                <label class="radio-option">
+
+                    <input
+                        type="radio"
+                        name="attendance"
+                        value="no"
+                    >
+
+                    <span class="radio-circle"></span>
+
+                    <span>
+                        Ցավոք, չեմ կարողանա մասնակցել
+                    </span>
+
+                </label>
 
             </div>
 
-            <h3>Շնորհակալություն</h3>
-
-            <p id="success-name"></p>
-
-            <p id="success-text"></p>
-
             <button
-                type="button"
-                class="edit-response"
-                id="edit-response"
+                type="submit"
+                class="pill-button submit-button"
+                id="submit-button"
             >
-                Փոխել պատասխանը
+                Հաստատել պատասխանը
             </button>
 
+            <p
+                class="form-error"
+                id="form-error"
+                aria-live="polite"
+            ></p>
+
+        </form>
+
+    </div>
+
+    <!-- RSVP SUCCESS -->
+
+    <div
+        class="success"
+        id="success"
+        aria-live="polite"
+    >
+
+        <div class="success-circle">
+
+            <svg viewBox="0 0 32 32">
+
+                <path d="M7 16l6 6L26 9"/>
+
+            </svg>
+
         </div>
+
+        <h3>
+            Շնորհակալություն
+        </h3>
+
+        <p id="success-name"></p>
+
+        <p id="success-text"></p>
+
+        <button
+            type="button"
+            class="edit-response"
+            id="edit-response"
+        >
+            Փոխել պատասխանը
+        </button>
 
     </div>
 
 </section>
 
-<!-- =====================
-     FOOTER
-====================== -->
+<!-- FOOTER -->
 
 <footer class="reveal">
 
-    <div class="footer-heart">♡</div>
+    <div class="footer-star">
+        ✦
+    </div>
 
     <h2>
         Սիրով սպասում եմ ձեզ
@@ -1904,89 +2884,337 @@ footer h2 {
 
 <script>
 
-/* =====================
+/* =====================================
    INITIALIZATION
-====================== */
+===================================== */
 
 document.documentElement.classList.add('js');
+
 document.body.classList.add('locked');
 
-const intro = document.getElementById('intro');
+const intro =
+    document.getElementById('intro');
 
 const envelope =
     document.getElementById('envelope');
 
+const cinematic =
+    document.getElementById('cinematic');
+
 const main =
     document.getElementById('main-content');
+
+const music =
+    document.getElementById('background-music');
+
+const musicButton =
+    document.getElementById('music-button');
 
 const reducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
 ).matches;
 
+let invitationOpened = false;
+
 main.inert = true;
 
-/* =====================
-   FLOATING SPARKLES
-====================== */
+/* =====================================
+   BACKGROUND MUSIC — DANCING QUEEN
+===================================== */
 
-const particles =
-    document.getElementById('particles');
+music.volume = 0.45;
+
+function updateMusicButton() {
+
+    const playing =
+        !music.paused && !music.ended;
+
+    musicButton.classList.toggle(
+        'playing',
+        playing
+    );
+
+    musicButton.setAttribute(
+        'aria-pressed',
+        String(playing)
+    );
+
+    musicButton.setAttribute(
+        'aria-label',
+        playing
+            ? 'Անջատել երաժշտությունը'
+            : 'Միացնել երաժշտությունը'
+    );
+
+}
+
+function playMusic() {
+
+    music.play()
+        .then(updateMusicButton)
+        .catch(function () {
+
+            updateMusicButton();
+
+        });
+
+}
+
+musicButton.addEventListener(
+    'click',
+    function () {
+
+        if (music.paused) {
+
+            playMusic();
+
+        } else {
+
+            music.pause();
+
+        }
+
+    }
+);
+
+music.addEventListener(
+    'play',
+    updateMusicButton
+);
+
+music.addEventListener(
+    'pause',
+    updateMusicButton
+);
+
+music.addEventListener(
+    'error',
+    updateMusicButton
+);
+
+/* =====================================
+   FLOATING SPARKLES
+===================================== */
+
+const sparkles =
+    document.getElementById('sparkles');
 
 if (!reducedMotion) {
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 25; i++) {
 
-        const particle =
+        const star =
             document.createElement('span');
 
-        particle.className = 'particle';
+        star.className = 'sparkle';
 
-        particle.textContent =
+        star.textContent =
             i % 3 === 0 ? '✦' : '✧';
 
-        particle.style.left =
+        star.style.left =
             Math.random() * 100 + '%';
 
-        particle.style.fontSize =
-            7 + Math.random() * 16 + 'px';
+        star.style.top =
+            Math.random() * 100 + '%';
 
-        particle.style.animationDuration =
-            7 + Math.random() * 8 + 's';
+        star.style.fontSize =
+            7 + Math.random() * 20 + 'px';
 
-        particle.style.animationDelay =
-            -Math.random() * 12 + 's';
+        star.style.animationDelay =
+            -Math.random() * 5 + 's';
 
-        particles.appendChild(particle);
+        star.style.animationDuration =
+            2 + Math.random() * 4 + 's';
+
+        sparkles.appendChild(star);
 
     }
 
 }
 
-/* =====================
-   OPEN INVITATION
-====================== */
+/* =====================================
+   ROSE-GOLD CONFETTI
+===================================== */
+
+function launchConfetti(amount = 65) {
+
+    if (reducedMotion) return;
+
+    const layer =
+        document.getElementById('confetti-layer');
+
+    const colors = [
+
+        '#C99D96',
+        '#B48260',
+        '#F5D6C2',
+        '#E8B9A7',
+        '#FFF2DF',
+        '#B77B68'
+
+    ];
+
+    for (let i = 0; i < amount; i++) {
+
+        const piece =
+            document.createElement('span');
+
+        piece.className = 'confetti';
+
+        const size =
+            5 + Math.random() * 8;
+
+        const color =
+            colors[
+                Math.floor(
+                    Math.random() * colors.length
+                )
+            ];
+
+        piece.style.left =
+            Math.random() * 100 + '%';
+
+        piece.style.width =
+            size + 'px';
+
+        piece.style.height =
+            size * 1.5 + 'px';
+
+        piece.style.background =
+            i % 4 === 0
+                ? 'linear-gradient(135deg,#FFF2DF,#B77B68,#F5D6C2)'
+                : color;
+
+        piece.style.borderRadius =
+            i % 3 === 0 ? '50%' : '1px';
+
+        piece.style.setProperty(
+            '--duration',
+            2.5 + Math.random() * 2 + 's'
+        );
+
+        piece.style.setProperty(
+            '--delay',
+            Math.random() * .8 + 's'
+        );
+
+        piece.style.setProperty(
+            '--drift',
+            -100 + Math.random() * 200 + 'px'
+        );
+
+        piece.style.setProperty(
+            '--rotation',
+            360 + Math.random() * 720 + 'deg'
+        );
+
+        layer.appendChild(piece);
+
+        setTimeout(function () {
+
+            piece.remove();
+
+        }, 6000);
+
+    }
+
+}
+
+/* =====================================
+   CINEMATIC OPENING
+===================================== */
+
+function revealInvitation() {
+
+    intro.classList.add('hidden');
+
+    document.body.classList.remove('locked');
+
+    document.body.classList.add('opened');
+
+    main.inert = false;
+
+    window.scrollTo(0, 0);
+
+}
 
 function openInvitation() {
 
-    if (envelope.classList.contains('open')) {
-        return;
-    }
+    if (invitationOpened) return;
+
+    invitationOpened = true;
+
+    // Audio starts directly from the user's tap.
+    // This is important for mobile browsers.
+
+    playMusic();
+
+    intro.classList.add('opening');
 
     envelope.classList.add('open');
 
+    if (reducedMotion) {
+
+        revealInvitation();
+
+        return;
+
+    }
+
     setTimeout(function () {
 
-        intro.classList.add('hidden');
+        const letter =
+            envelope.querySelector('.letter');
 
-        document.body.classList.remove('locked');
+        const rect =
+            letter.getBoundingClientRect();
 
-        document.body.classList.add('opened');
+        cinematic.style.top =
+            rect.top + rect.height / 2 + 'px';
 
-        main.inert = false;
+        cinematic.style.width =
+            rect.width + 'px';
 
-        window.scrollTo(0, 0);
+        cinematic.style.height =
+            rect.height + 'px';
 
-    }, reducedMotion ? 0 : 1500);
+        cinematic.classList.add('ready');
+
+        requestAnimationFrame(function () {
+
+            requestAnimationFrame(function () {
+
+                cinematic.style.top = '';
+                cinematic.style.width = '';
+                cinematic.style.height = '';
+
+                cinematic.classList.add('expand');
+
+            });
+
+        });
+
+    }, 1200);
+
+    setTimeout(function () {
+
+        revealInvitation();
+
+        launchConfetti(75);
+
+    }, 2200);
+
+    setTimeout(function () {
+
+        cinematic.classList.add('finish');
+
+    }, 2350);
+
+    setTimeout(function () {
+
+        cinematic.style.display = 'none';
+
+    }, 3100);
 
 }
 
@@ -1995,14 +3223,15 @@ intro.addEventListener(
     openInvitation
 );
 
-/* =====================
+/* =====================================
    NOVEMBER 2026 CALENDAR
-====================== */
+===================================== */
 
 const calendar =
     document.getElementById('calendar');
 
 const year = 2026;
+
 const month = 10;
 
 const firstDay =
@@ -2044,26 +3273,25 @@ for (let day = 1; day <= totalDays; day++) {
         );
 
         cell.innerHTML = `
+
             <svg
                 viewBox="0 0 50 50"
                 aria-hidden="true"
             >
 
                 <path
+                    class="calendar-heart-path"
                     d="M25 45
                        C18 37 2 25 3 14
                        C4 2 19 1 25 12
                        C32 1 47 2 47 14
-                       C48 25 32 39 25 45 Z"
-                    fill="none"
-                    stroke="#E8CEAD"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                       C48 25 32 39 25 45Z"
                 />
 
             </svg>
 
             <span>23</span>
+
         `;
 
     }
@@ -2072,9 +3300,12 @@ for (let day = 1; day <= totalDays; day++) {
 
 }
 
-/* =====================
+/* =====================================
    SCROLL REVEAL
-====================== */
+===================================== */
+
+const revealElements =
+    document.querySelectorAll('.reveal');
 
 if ('IntersectionObserver' in window) {
 
@@ -2101,35 +3332,114 @@ if ('IntersectionObserver' in window) {
         },
 
         {
-            threshold: 0.08
+            threshold: .08
         }
 
     );
 
-    document.querySelectorAll('.reveal')
-        .forEach(function (element) {
+    revealElements.forEach(function (element) {
 
-            observer.observe(element);
+        observer.observe(element);
 
-        });
+    });
 
 } else {
 
-    document.querySelectorAll('.reveal')
-        .forEach(function (element) {
+    revealElements.forEach(function (element) {
 
-            element.classList.add('visible');
+        element.classList.add('visible');
 
-        });
+    });
 
 }
 
-/* =====================
-   RSVP INTEGRATION
-====================== */
+/* =====================================
+   FLOATING SCRAPBOOK PHOTOS
+===================================== */
 
-// Insert your RSVP app's compatible endpoint here.
-// Empty endpoint = portfolio demonstration only.
+const scrapbook =
+    document.getElementById('scrapbook');
+
+let scrollScheduled = false;
+
+function updateScrapbook() {
+
+    scrollScheduled = false;
+
+    if (reducedMotion) return;
+
+    const rect =
+        scrapbook.getBoundingClientRect();
+
+    const viewportHeight =
+        window.innerHeight;
+
+    if (
+        rect.bottom < 0 ||
+        rect.top > viewportHeight
+    ) {
+        return;
+    }
+
+    const progress = Math.max(
+        -1,
+        Math.min(
+            1,
+            (
+                rect.top +
+                rect.height / 2 -
+                viewportHeight / 2
+            ) / viewportHeight
+        )
+    );
+
+    scrapbook.style.setProperty(
+        '--float-one',
+        progress * 35 + 'px'
+    );
+
+    scrapbook.style.setProperty(
+        '--float-two',
+        progress * -35 + 'px'
+    );
+
+}
+
+window.addEventListener(
+
+    'scroll',
+
+    function () {
+
+        if (!scrollScheduled) {
+
+            scrollScheduled = true;
+
+            requestAnimationFrame(
+                updateScrapbook
+            );
+
+        }
+
+    },
+
+    {
+        passive: true
+    }
+
+);
+
+window.addEventListener(
+    'resize',
+    updateScrapbook
+);
+
+/* =====================================
+   RSVP CONFIGURATION
+===================================== */
+
+// Add the compatible endpoint from your RSVP app.
+// Leave empty for the Instagram portfolio demo.
 
 const RSVP_ENDPOINT = "";
 
@@ -2148,8 +3458,12 @@ const submitButton =
 const formError =
     document.getElementById('form-error');
 
+let responseId = null;
+
 form.addEventListener(
+
     'submit',
+
     async function (event) {
 
         event.preventDefault();
@@ -2173,19 +3487,23 @@ form.addEventListener(
 
         }
 
-        const attendance = selected.value;
+        const attendance =
+            selected.value;
 
         const response = {
 
             name: name,
 
-            attendance: attendance === 'yes'
-                ? 'Կմասնակցեմ'
-                : 'Չեմ մասնակցի',
+            attendance:
+                attendance === 'yes'
+                    ? 'Կմասնակցեմ'
+                    : 'Չեմ մասնակցի',
 
             event: 'Մարիայի 11-ամյակը',
 
-            date: '23.11.2026'
+            date: '23.11.2026',
+
+            response_id: responseId
 
         };
 
@@ -2199,38 +3517,51 @@ form.addEventListener(
             if (RSVP_ENDPOINT) {
 
                 const result = await fetch(
+
                     RSVP_ENDPOINT,
+
                     {
+
                         method: 'POST',
 
                         headers: {
+
                             'Content-Type':
                                 'application/json'
+
                         },
 
                         body: JSON.stringify(
                             response
                         )
+
                     }
+
                 );
 
                 if (!result.ok) {
 
                     throw new Error(
-                        'Submission failed'
+                        'RSVP submission failed'
                     );
 
                 }
 
+                const data = await result
+                    .json()
+                    .catch(() => ({}));
+
+                responseId =
+                    data.response_id || responseId;
+
             } else {
 
-                // Instagram portfolio demonstration.
-                // No guest information is transmitted
-                // or stored.
+                // Portfolio demonstration only.
+                // Guest information is not transmitted.
 
                 await new Promise(function (resolve) {
 
-                    setTimeout(resolve, 500);
+                    setTimeout(resolve, 450);
 
                 });
 
@@ -2241,17 +3572,27 @@ form.addEventListener(
 
             document.getElementById('success-text')
                 .textContent = RSVP_ENDPOINT
+
                     ? (
                         attendance === 'yes'
+
                             ? 'Ձեր պատասխանը գրանցված է։ Սիրով սպասում եմ ձեզ։'
+
                             : 'Շնորհակալություն պատասխանի համար։'
                     )
+
                     : 'Ձեր ընտրությունը՝ ' +
                         response.attendance + '։';
 
             formContent.style.display = 'none';
 
             success.classList.add('show');
+
+            if (attendance === 'yes') {
+
+                launchConfetti(40);
+
+            }
 
         } catch (error) {
 
@@ -2268,18 +3609,23 @@ form.addEventListener(
         }
 
     }
+
 );
 
-/* =====================
+/* =====================================
    EDIT RSVP RESPONSE
-====================== */
+===================================== */
 
 document.getElementById('edit-response')
+
     .addEventListener('click', function () {
 
         success.classList.remove('show');
 
         formContent.style.display = 'block';
+
+        document.getElementById('guest-name')
+            .focus();
 
     });
 
@@ -2289,12 +3635,10 @@ document.getElementById('edit-response')
 
     <style>
 
-        .intro {
+        .intro,
+        .cinematic,
+        .music-button {
             display: none;
-        }
-
-        .day.special path {
-            stroke-dashoffset: 0;
         }
 
     </style>
