@@ -2,57 +2,30 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-<meta name="theme-color" content="#C99D96">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FF79AC">
 <meta name="robots" content="noindex, nofollow">
-
 <title>Մարիայի 11-ամյակը | Invitéa</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Armenian:wght@300;400;500;600;700&family=Noto+Serif+Armenian:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+Armenian:wght@400;500;600;700;800&family=Noto+Serif+Armenian:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =====================================
-   INVITÉA — CARAMEL CONFETTI
-===================================== */
-
 :root {
-
-    --chocolate: #714832;
-    --caramel: #B48260;
-    --rose: #C99D96;
-    --peach: #E8CBB7;
-    --vanilla: #F7EDE2;
-    --cream: #FFF8F0;
-    --deep: #543326;
-
-    --metal: linear-gradient(
-        125deg,
-        #89594E 0%,
-        #C58E7B 15%,
-        #F5D6C2 32%,
-        #FFF2DF 42%,
-        #B77B68 56%,
-        #E8B9A7 75%,
-        #9E6455 100%
-    );
-
+    --pink: #FF79AC;
+    --hot-pink: #F34D91;
+    --light-pink: #FFDCEB;
+    --cream: #FFF8EE;
+    --white: #FFFFFF;
+    --brown: #754936;
+    --caramel: #C58B60;
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -60,10 +33,9 @@ html {
 }
 
 body {
-    background: var(--peach);
-    color: var(--chocolate);
     font-family: 'Noto Sans Armenian', sans-serif;
-    -webkit-font-smoothing: antialiased;
+    background: var(--cream);
+    color: var(--brown);
     overflow-x: hidden;
 }
 
@@ -71,13 +43,11 @@ body.locked {
     overflow: hidden;
 }
 
-button,
-input {
+button, input, textarea {
     font: inherit;
 }
 
-button,
-a {
+button, a {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
@@ -91,75 +61,95 @@ img {
     width: 100%;
 }
 
-h1,
-h2,
-h3 {
-    font-family: 'Noto Serif Armenian', serif;
-    font-weight: 400;
-}
-
 main {
-    max-width: 560px;
+    max-width: 720px;
     margin: auto;
-    background: var(--vanilla);
     overflow: hidden;
+    background: var(--cream);
 }
 
 section {
     position: relative;
+    padding: 65px 24px;
+}
+
+h1, h2, h3 {
+    font-family: 'Noto Serif Armenian', serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(25px, 6vw, 38px);
+    line-height: 1.5;
+}
+
+.western {
+    font-family: 'Rye', Georgia, serif;
+    font-weight: 400;
 }
 
 .eyebrow {
-    font-size: 10px;
-    letter-spacing: 2px;
-    font-weight: 600;
+    color: #B72E66;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
 }
 
-.section-title {
-    font-size: clamp(25px, 6vw, 34px);
-    line-height: 1.6;
+.center {
+    text-align: center;
 }
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible {
-    outline: 2px solid var(--deep);
-    outline-offset: 4px;
+.description {
+    font-size: 14px;
+    line-height: 2;
+    max-width: 430px;
+    margin: 20px auto;
 }
 
-/* =====================================
-   OPENING SCREEN
-===================================== */
+.star {
+    position: absolute;
+    color: var(--hot-pink);
+    pointer-events: none;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        transform: rotate(-10deg) scale(.85);
+        opacity: .65;
+    }
+    to {
+        transform: rotate(10deg) scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   OPENING ENVELOPE
+========================= */
 
 .intro {
-
     position: fixed;
     inset: 0;
     z-index: 1000;
-
+    background: var(--light-pink);
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background:
-        radial-gradient(
-            ellipse at 15% 10%,
-            #F7EDE2,
-            transparent 45%
-        ),
-        radial-gradient(
-            ellipse at 90% 90%,
-            #B48260,
-            transparent 65%
-        ),
-        #C99D96;
-
     overflow: hidden;
+    transition: opacity .65s, visibility .65s;
+}
 
-    transition:
-        opacity .65s ease,
-        visibility .65s ease;
-
+.intro::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+        #F34D9125 1.5px,
+        transparent 1.5px
+    );
+    background-size: 24px 24px;
 }
 
 .intro.hidden {
@@ -168,261 +158,161 @@ input:focus-visible {
     pointer-events: none;
 }
 
-.intro-outline {
+.intro-border {
     position: absolute;
-    inset: 15px;
-    border: 1px solid #FFF8F080;
+    inset: 16px;
+    border: 2px dashed #F34D9170;
+    border-radius: 24px;
     pointer-events: none;
-}
-
-.intro-outline::after {
-    content: '';
-    position: absolute;
-    inset: 5px;
-    border: 1px solid #71483230;
 }
 
 .intro-content {
     position: relative;
-    width: 100%;
-    max-width: 450px;
-    padding: 25px;
     text-align: center;
-    z-index: 5;
+    width: min(100%, 440px);
+    padding: 30px 24px;
 }
 
-.intro-heading {
+.intro-title {
+    font-size: clamp(25px, 7vw, 36px);
+    line-height: 1.4;
+    color: var(--brown);
+    margin-bottom: 12px;
+}
+
+.intro-subtitle {
     font-size: 12px;
-    letter-spacing: 4px;
-    margin-bottom: 70px;
-}
-
-.intro-brand {
-    position: absolute;
-    bottom: max(30px, env(safe-area-inset-bottom));
-    left: 0;
-    right: 0;
-    text-align: center;
-
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    letter-spacing: 5px;
-
-    color: var(--chocolate);
+    color: #A93465;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 65px;
 }
 
 .open-button {
-    border: none;
+    border: 0;
     background: transparent;
     width: 100%;
     color: inherit;
 }
 
-.tap-text {
-    margin-top: 55px;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 2;
-    animation: breathe 2.5s ease infinite;
-}
-
-@keyframes breathe {
-    50% {
-        opacity: .45;
-    }
-}
-
-/* =====================================
-   METALLIC HEART ENVELOPE
-===================================== */
-
 .envelope {
-
-    position: relative;
-
-    width: min(320px, 80vw);
+    width: min(320px, 78vw);
     aspect-ratio: 1.45;
-
+    position: relative;
     margin: auto;
-
-    perspective: 1200px;
-
-    filter: drop-shadow(
-        0 25px 25px #71483245
-    );
-
+    perspective: 1000px;
+    filter: drop-shadow(0 18px 20px #A9346530);
 }
 
 .envelope-back {
     position: absolute;
     inset: 0;
-    border-radius: 3px;
-    background: #A47770;
+    background: #D94B87;
+    border-radius: 8px;
+    z-index: 1;
 }
 
 .letter {
-
     position: absolute;
-
     width: 88%;
-    height: 90%;
-
+    height: 92%;
+    bottom: 4%;
     left: 6%;
-    bottom: 5%;
-
     background: var(--cream);
-    border: 1px solid var(--caramel);
-
+    border-radius: 5px;
+    border: 2px solid var(--pink);
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    transition: transform .85s
-        cubic-bezier(.22,.8,.25,1);
-
+    transition: transform .85s cubic-bezier(.2,.8,.2,1);
 }
 
 .letter::before {
     content: '';
     position: absolute;
-    inset: 9px;
-    border: 1px solid var(--rose);
+    inset: 8px;
+    border: 1px dashed var(--pink);
+    border-radius: 3px;
 }
 
 .letter-name {
     font-family: 'Noto Serif Armenian', serif;
-    font-size: 25px;
+    font-size: 24px;
 }
 
 .letter-age {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 75px;
-    line-height: 1;
-    color: var(--caramel);
+    font-family: 'Rye', serif;
+    color: var(--hot-pink);
+    font-size: 64px;
+    line-height: 1.3;
 }
 
-.letter-star {
-    font-size: 17px;
-    color: var(--rose);
+.letter-stars {
+    color: var(--hot-pink);
+    letter-spacing: 6px;
 }
 
-.envelope-left {
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(
-        140deg,
-        #DDB5AC,
-        #B98A82
-    );
-
-    clip-path: polygon(
-        0 0,
-        65% 65%,
-        0 100%
-    );
-}
-
-.envelope-right {
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(
-        220deg,
-        #D8ACA2,
-        #AA7970
-    );
-
-    clip-path: polygon(
-        100% 0,
-        35% 65%,
-        100% 100%
-    );
-}
-
+.envelope-left,
+.envelope-right,
 .envelope-bottom {
     position: absolute;
     inset: 0;
+    z-index: 3;
+}
 
-    background: linear-gradient(
-        150deg,
-        #E6C1B5,
-        #C99D96 60%,
-        #B88980
-    );
+.envelope-left {
+    background: #FF9FC5;
+    clip-path: polygon(0 0, 65% 65%, 0 100%);
+}
 
-    clip-path: polygon(
-        0 100%,
-        50% 42%,
-        100% 100%
-    );
+.envelope-right {
+    background: #F58AB6;
+    clip-path: polygon(100% 0, 35% 65%, 100% 100%);
+}
+
+.envelope-bottom {
+    background: #FFB5D2;
+    clip-path: polygon(0 100%, 50% 40%, 100% 100%);
 }
 
 .flap {
-
     position: absolute;
     inset: 0;
-
-    background: linear-gradient(
-        160deg,
-        #E8C5B9,
-        #D2A49A 50%,
-        #B58278
-    );
-
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        50% 65%
-    );
-
+    background: #FFC7DD;
+    clip-path: polygon(0 0, 100% 0, 50% 65%);
     transform-origin: top;
-    transition: transform .7s ease;
-
-    z-index: 5;
-
+    transition: transform .65s ease;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    z-index: 4;
 }
 
-.heart-seal {
-
+.seal {
     position: absolute;
-
+    width: 72px;
+    height: 72px;
     top: 61%;
     left: 50%;
-
-    width: 74px;
-    height: 74px;
-
     transform: translate(-50%, -50%);
-
-    z-index: 6;
-
-    filter: drop-shadow(
-        0 5px 5px #71483260
-    );
-
-    transition:
-        opacity .3s,
-        transform .3s;
-
+    z-index: 5;
+    filter: drop-shadow(0 4px 5px #B72E6550);
+    transition: opacity .3s, scale .3s;
 }
 
-.heart-seal svg {
+.seal svg {
     width: 100%;
     height: 100%;
 }
 
-.envelope.open .heart-seal {
+.envelope.open .seal {
     opacity: 0;
-    transform:
-        translate(-50%, -50%)
-        scale(1.3);
+    scale: 1.3;
 }
 
 .envelope.open .flap {
     transform: rotateX(180deg);
-    z-index: 0;
 }
 
 .envelope.open .letter {
@@ -430,130 +320,120 @@ input:focus-visible {
     transition-delay: .35s;
 }
 
-.intro.opening .tap-text {
-    opacity: 0;
-    animation: none;
+.tap-text {
+    margin-top: 45px;
+    font-size: 12px;
+    font-weight: 700;
+    animation: pulse 2s infinite;
 }
 
-.intro.opening .intro-heading {
-    opacity: 0;
-    transition: opacity .3s;
+@keyframes pulse {
+    50% {
+        opacity: .5;
+    }
 }
 
-/* =====================================
-   CINEMATIC PHOTO TRANSITION
-===================================== */
+.intro-brand {
+    position: absolute;
+    bottom: 35px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 19px;
+    letter-spacing: 5px;
+}
 
-.cinematic {
+/* =========================
+   CINEMATIC REVEAL
+========================= */
 
+.transition-photo {
     position: fixed;
     z-index: 1100;
-
-    top: 50%;
     left: 50%;
-
-    width: 220px;
-    height: 150px;
-
+    top: 50%;
+    width: 240px;
+    height: 170px;
     transform: translate(-50%, -50%);
-
+    background: var(--cream);
+    overflow: hidden;
     opacity: 0;
     visibility: hidden;
-
-    overflow: hidden;
-    background: var(--cream);
-
-    border: 1px solid var(--rose);
-    border-radius: 3px;
-
     pointer-events: none;
-
     transition:
-        width .95s cubic-bezier(.2,.75,.2,1),
-        height .95s cubic-bezier(.2,.75,.2,1),
-        top .95s cubic-bezier(.2,.75,.2,1),
-        border-radius .95s,
-        opacity .35s;
-
+        width .85s ease,
+        height .85s ease,
+        top .85s ease,
+        opacity .4s;
 }
 
-.cinematic.ready {
-    visibility: visible;
+.transition-photo.active {
     opacity: 1;
+    visibility: visible;
 }
 
-.cinematic.expand {
+.transition-photo.expand {
+    width: min(100vw, 720px);
+    height: 100svh;
     top: 50%;
-    width: min(100vw, 560px);
-    height: 100dvh;
-    border-radius: 0;
-    border: none;
 }
 
-.cinematic img {
-
-    width: 100%;
+.transition-photo img {
     height: 100%;
-
     object-fit: cover;
-    object-position: center;
-
     opacity: 0;
-    transform: scale(1.12);
-
-    transition:
-        opacity .7s ease,
-        transform 1.2s ease;
-
+    transform: scale(1.1);
+    transition: opacity .6s, transform 1s;
 }
 
-.cinematic.expand img {
+.transition-photo.expand img {
     opacity: 1;
     transform: scale(1);
 }
 
-.cinematic.finish {
+.transition-photo.finish {
     opacity: 0;
 }
 
-/* =====================================
-   SPARKLES AND CONFETTI
-===================================== */
+/* =========================
+   MUSIC
+========================= */
 
-.sparkles {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
+.music-button {
+    position: fixed;
+    top: 18px;
+    right: max(18px, calc((100vw - 720px)/2 + 18px));
+    z-index: 500;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: var(--hot-pink);
+    color: white;
+    font-size: 22px;
+    box-shadow: 0 4px 15px #75493625;
+    display: none;
+    place-items: center;
 }
 
-.sparkle {
-
-    position: absolute;
-
-    color: #FFF4E7;
-
-    text-shadow:
-        0 0 12px #FFFFFF80;
-
-    animation: twinkle 3s
-        ease-in-out infinite alternate;
-
+body.opened .music-button {
+    display: grid;
 }
 
-@keyframes twinkle {
+.music-button.playing {
+    animation: musicPulse 2s infinite;
+}
 
-    from {
-        opacity: .2;
-        transform: scale(.7) rotate(0deg);
+@keyframes musicPulse {
+    50% {
+        box-shadow: 0 0 0 7px #FF79AC40;
     }
-
-    to {
-        opacity: 1;
-        transform: scale(1.2) rotate(25deg);
-    }
-
 }
+
+/* =========================
+   CONFETTI
+========================= */
 
 .confetti-layer {
     position: fixed;
@@ -564,566 +444,264 @@ input:focus-visible {
 }
 
 .confetti {
-
     position: absolute;
-
     top: -30px;
-
-    animation: confettiFall
-        var(--duration)
-        var(--delay)
-        cubic-bezier(.15,.45,.5,1)
-        forwards;
-
+    animation: fall var(--duration)
+        var(--delay) linear forwards;
 }
 
-@keyframes confettiFall {
-
-    0% {
-        transform:
-            translate3d(0,-30px,0)
-            rotate(0deg);
-        opacity: 1;
+@keyframes fall {
+    from {
+        transform: translateY(-30px) rotate(0);
     }
-
-    85% {
-        opacity: 1;
-    }
-
-    100% {
-        transform:
-            translate3d(
-                var(--drift),
-                110vh,
-                0
-            )
-            rotate(var(--rotation));
-
-        opacity: 0;
-    }
-
-}
-
-/* =====================================
-   MUSIC CONTROL
-===================================== */
-
-.music-button {
-
-    position: fixed;
-
-    right: max(18px, env(safe-area-inset-right));
-    top: max(18px, env(safe-area-inset-top));
-
-    z-index: 500;
-
-    width: 46px;
-    height: 46px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 50%;
-    border: 1px solid #FFF8F0A0;
-
-    background: #714832C0;
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    color: var(--cream);
-
-    box-shadow:
-        0 5px 15px #71483225;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity .5s,
-        transform .3s,
-        visibility .5s;
-
-}
-
-body.opened .music-button {
-    opacity: 1;
-    visibility: visible;
-}
-
-.music-button:active {
-    transform: scale(.9);
-}
-
-.music-button svg {
-    width: 20px;
-    height: 20px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.sound-bars {
-    display: none;
-    height: 20px;
-    align-items: center;
-    gap: 3px;
-}
-
-.sound-bars span {
-    display: block;
-    width: 2px;
-    height: 8px;
-    border-radius: 2px;
-    background: var(--cream);
-    animation: soundWave .8s infinite alternate;
-}
-
-.sound-bars span:nth-child(2) {
-    animation-delay: .2s;
-}
-
-.sound-bars span:nth-child(3) {
-    animation-delay: .4s;
-}
-
-.sound-bars span:nth-child(4) {
-    animation-delay: .1s;
-}
-
-.music-button.playing .sound-bars {
-    display: flex;
-}
-
-.music-button.playing .muted-icon {
-    display: none;
-}
-
-@keyframes soundWave {
     to {
-        height: 20px;
+        transform: translate(
+            var(--drift), 110vh
+        ) rotate(720deg);
     }
 }
 
-/* =====================================
-   01 — FULL SCREEN PHOTO
-===================================== */
+/* =========================
+   HERO PHOTO
+========================= */
 
 .hero {
-
-    position: relative;
-
     height: 100svh;
     min-height: 400px;
-
-    background: var(--rose);
-
+    position: relative;
     overflow: hidden;
-
+    background: var(--light-pink);
 }
 
 .hero img {
-    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
 
-.hero-outline {
+.hero-frame {
     position: absolute;
-    inset: 10px;
-    border: 1px solid #FFF8F075;
+    inset: 12px;
+    border: 2px solid #FFFFFF90;
+    border-radius: 12px;
     pointer-events: none;
 }
 
-.scroll-button {
-
+.scroll-arrow {
     position: absolute;
-
+    bottom: 25px;
     left: 50%;
-    bottom: max(25px, env(safe-area-inset-bottom));
-
     transform: translateX(-50%);
-
-    width: 46px;
-    height: 46px;
-
+    width: 48px;
+    height: 48px;
+    background: var(--cream);
+    border: 2px solid var(--pink);
+    border-radius: 50%;
+    color: var(--brown);
+    text-decoration: none;
     display: grid;
     place-items: center;
-
-    border-radius: 50%;
-    border: 1px solid #FFF8F090;
-
-    background: #F7EDE260;
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    color: var(--deep);
-
-    text-decoration: none;
-
-}
-
-.scroll-button svg {
-    width: 20px;
-    animation: arrowBounce 2s infinite;
-}
-
-@keyframes arrowBounce {
-    50% {
-        transform: translateY(4px);
-    }
-}
-
-/* =====================================
-   02 — BIRTHDAY EDITORIAL
-===================================== */
-
-.editorial {
-
-    padding: 45px 22px 60px;
-
-    background:
-        radial-gradient(
-            ellipse at top right,
-            #D8ADA3,
-            transparent 60%
-        ),
-        var(--peach);
-
-    overflow: hidden;
-
-}
-
-.editorial-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.editorial-top .eyebrow {
-    font-size: 9px;
-    letter-spacing: 1.8px;
-}
-
-.edition-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-style: italic;
-}
-
-.editorial-name {
-    font-size: clamp(38px, 11vw, 58px);
-    margin-top: 28px;
-    line-height: 1.4;
-}
-
-.editorial-composition {
-
-    position: relative;
-
-    min-height: 300px;
-
-    margin-top: 10px;
-    margin-bottom: 25px;
-
-}
-
-.big-age {
-
-    position: absolute;
-
-    top: -10px;
-    left: -12px;
-
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(180px, 52vw, 260px);
-    font-weight: 500;
-    font-style: italic;
-
-    line-height: 1;
-
-    letter-spacing: -15px;
-
-    background: var(--metal);
-    background-size: 200% auto;
-
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    filter: drop-shadow(
-        1px 2px 0 #71483220
-    );
-
-    animation: metallicShine 6s linear infinite;
-
-}
-
-@keyframes metallicShine {
-    to {
-        background-position: 200% center;
-    }
-}
-
-.editorial-photo {
-
-    position: absolute;
-
-    top: 35px;
-    right: 5px;
-
-    width: 48%;
-
-    padding: 6px 6px 23px;
-
-    background: var(--cream);
-
-    box-shadow:
-        0 15px 30px #71483235;
-
-    transform: rotate(8deg);
-
-}
-
-.editorial-photo img {
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-}
-
-.photo-caption {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    font-style: italic;
-    text-align: center;
-    margin-top: 8px;
-}
-
-.age-caption {
-
-    position: absolute;
-
-    top: 220px;
-    left: 12px;
-
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 4px;
-
-}
-
-.editorial-star {
-    position: absolute;
-    color: var(--cream);
-    text-shadow: 0 2px 8px #B4826040;
-}
-
-.star-one {
-    top: 5px;
-    right: 0;
-    font-size: 34px;
-}
-
-.star-two {
-    bottom: 0;
-    left: 30px;
-    font-size: 40px;
-}
-
-.star-three {
-    bottom: 20px;
-    right: 15px;
-    font-size: 23px;
-}
-
-.invitation-copy {
-    position: relative;
-    text-align: center;
-    padding: 5px 5px 0;
-}
-
-.invitation-copy h2 {
     font-size: 25px;
-    margin-bottom: 22px;
+    animation: bounce 2s infinite;
 }
 
-.invitation-copy p {
-    font-size: 14px;
-    line-height: 2.15;
-    max-width: 350px;
-    margin: auto;
+@keyframes bounce {
+    50% {
+        transform: translate(-50%, 6px);
+    }
 }
 
-.handwritten-heart {
-    font-family: Georgia, serif;
-    font-size: 42px;
-    color: var(--chocolate);
-    margin-top: 20px;
-    transform: rotate(-12deg);
+/* =========================
+   DECORATIVE STRIP
+========================= */
+
+.party-strip {
+    background: var(--pink);
+    color: var(--brown);
+    overflow: hidden;
+    padding: 15px 0;
+    white-space: nowrap;
+    border-top: 2px solid var(--cream);
+    border-bottom: 2px solid var(--cream);
 }
 
-/* =====================================
-   03 — ROSE CALENDAR
-===================================== */
+.strip-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 24s linear infinite;
+}
+
+.strip-track span {
+    font-family: 'Rye', serif;
+    font-size: 13px;
+    padding-right: 24px;
+}
+
+@keyframes marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* =========================
+   BIRTHDAY INTRODUCTION
+========================= */
+
+.birthday {
+    background: var(--cream);
+    text-align: center;
+}
+
+.birthday-title {
+    font-size: clamp(35px, 10vw, 58px);
+    color: var(--brown);
+}
+
+.birthday-age {
+    font-family: 'Rye', serif;
+    font-size: clamp(120px, 34vw, 190px);
+    color: var(--hot-pink);
+    line-height: 1.2;
+    -webkit-text-stroke: 1px #D83D7A;
+    text-shadow: 5px 5px 0 var(--light-pink);
+}
+
+.age-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: var(--brown);
+    margin-bottom: 25px;
+}
+
+.birthday .star.one {
+    left: 12%;
+    top: 23%;
+    font-size: 32px;
+}
+
+.birthday .star.two {
+    right: 12%;
+    top: 30%;
+    font-size: 45px;
+}
+
+.birthday .star.three {
+    right: 22%;
+    top: 10%;
+    font-size: 18px;
+}
+
+.birthday-photo {
+    width: min(86%, 380px);
+    margin: 35px auto;
+    padding: 9px;
+    background: white;
+    border: 2px solid var(--pink);
+    border-radius: 110px 110px 16px 16px;
+    box-shadow: 8px 8px 0 var(--light-pink);
+    transform: rotate(-2deg);
+}
+
+.birthday-photo img {
+    border-radius: 100px 100px 9px 9px;
+    height: auto;
+}
+
+.birthday-message {
+    font-size: 25px;
+    margin-top: 35px;
+}
+
+.heart-divider {
+    color: var(--hot-pink);
+    font-size: 25px;
+    letter-spacing: 8px;
+    margin: 25px 0 0;
+}
+
+/* =========================
+   CALENDAR
+========================= */
 
 .calendar-section {
-
-    padding: 55px 24px;
-
+    background: var(--light-pink);
     text-align: center;
-
-    background:
-        radial-gradient(
-            ellipse at 10% 90%,
-            #B48260,
-            transparent 65%
-        ),
-        #C99D96;
-
-}
-
-.calendar-section .eyebrow {
-    margin-bottom: 15px;
-}
-
-.calendar-section .section-title {
-    margin-bottom: 35px;
 }
 
 .calendar-paper {
-
-    position: relative;
-
-    max-width: 380px;
-    margin: auto;
-
-    padding: 28px 15px 25px;
-
-    border-radius: 4px 4px 16px 16px;
-
+    max-width: 420px;
+    margin: 30px auto 0;
+    padding: 25px 14px;
     background: var(--cream);
-
-    box-shadow:
-        0 18px 35px #71483225;
-
-}
-
-.calendar-rings {
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    top: -12px;
-
-    display: flex;
-    justify-content: space-around;
-
-    padding: 0 30px;
-
-}
-
-.calendar-ring {
-
-    width: 10px;
-    height: 25px;
-
-    border-radius: 10px;
-
-    background: var(--metal);
-
-    box-shadow:
-        1px 2px 4px #71483235;
-
+    border: 2px solid var(--pink);
+    border-radius: 24px;
+    box-shadow: 6px 6px 0 #FF79AC55;
 }
 
 .calendar-month {
     font-family: 'Noto Serif Armenian', serif;
-    font-size: 26px;
+    font-size: 25px;
+    font-weight: 700;
 }
 
 .calendar-year {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    letter-spacing: 5px;
-    margin: 5px 0 20px;
-    color: var(--caramel);
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #B72E66;
+    margin: 6px 0 25px;
 }
 
 .calendar-grid {
     display: grid;
-    grid-template-columns:
-        repeat(7, minmax(0,1fr));
-    gap: 6px 0;
+    grid-template-columns: repeat(7, minmax(0,1fr));
+    gap: 5px 0;
 }
 
 .weekday {
     font-size: 10px;
-    font-weight: 500;
-    color: var(--chocolate);
+    font-weight: 700;
+    color: #B72E66;
     padding-bottom: 10px;
 }
 
 .day {
-
     position: relative;
-
     height: 40px;
-
     display: grid;
     place-items: center;
-
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-
+    font-family: 'Outfit', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
 }
 
 .day.special {
-    font-weight: 600;
-    color: #A65F6C;
+    color: #B72E66;
+    font-weight: 800;
 }
 
 .day.special svg {
-
     position: absolute;
-
     width: 44px;
     height: 44px;
-
     overflow: visible;
-
     pointer-events: none;
-
-    transform: rotate(-8deg);
-
 }
 
-.calendar-heart-path {
-
-    fill: none;
-    stroke: #B76E79;
-    stroke-width: 2;
+.calendar-heart {
+    fill: #FF79AC20;
+    stroke: var(--hot-pink);
+    stroke-width: 2.5;
     stroke-linecap: round;
     stroke-linejoin: round;
-
     stroke-dasharray: 160;
-    stroke-dashoffset: 0;
-
-}
-
-.js .calendar-heart-path {
     stroke-dashoffset: 160;
 }
 
-.js .calendar-section.visible
-.calendar-heart-path {
-
-    animation: drawHeart
-        1.6s .5s ease forwards;
-
+.calendar-section.visible .calendar-heart {
+    animation: drawHeart 1.5s .4s forwards;
 }
 
 @keyframes drawHeart {
@@ -1133,752 +711,458 @@ body.opened .music-button {
 }
 
 .event-date {
-
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(38px, 11vw, 54px);
-    font-weight: 500;
-
-    margin-top: 30px;
-
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(32px, 10vw, 48px);
+    font-weight: 700;
+    margin-top: 28px;
 }
 
 .event-weekday {
     font-size: 13px;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
-/* =====================================
-   04 — EVENT DETAILS
-===================================== */
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown {
+    background: var(--pink);
+    text-align: center;
+    padding: 45px 18px;
+}
+
+.countdown h2 {
+    font-size: clamp(21px, 5vw, 30px);
+    margin-bottom: 28px;
+}
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 8px;
+    max-width: 470px;
+    margin: auto;
+}
+
+.countdown-box {
+    background: var(--cream);
+    border: 2px solid white;
+    border-radius: 18px;
+    padding: 20px 2px;
+    box-shadow: 0 4px 0 #D94B8750;
+}
+
+.countdown-number {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(28px, 8vw, 46px);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+}
+
+.countdown-label {
+    display: block;
+    font-size: clamp(9px, 2.5vw, 12px);
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+/* =========================
+   EVENT DETAILS
+========================= */
 
 .details {
-
-    padding: 55px 25px;
-
+    background: var(--cream);
     text-align: center;
-
-    background: var(--vanilla);
-
 }
 
-.details .eyebrow {
-    color: var(--caramel);
-    margin-bottom: 12px;
+.detail-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--light-pink);
+    color: #B72E66;
+    display: grid;
+    place-items: center;
+    margin: 35px auto 20px;
 }
 
-.details .section-title {
-    margin-bottom: 40px;
-}
-
-.location-icon,
-.clock-icon {
-
-    width: 40px;
-    height: 40px;
-
-    margin: 0 auto 20px;
-
-    color: var(--caramel);
-
-}
-
-.location-icon svg,
-.clock-icon svg {
-
-    width: 100%;
-    height: 100%;
-
+.detail-icon svg {
+    width: 26px;
+    height: 26px;
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.4;
+    stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
-
-}
-
-.detail-label {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-    font-weight: 500;
 }
 
 .venue-name {
-    font-family: 'Noto Serif Armenian', serif;
-    font-size: 34px;
+    font-size: 32px;
     margin-bottom: 25px;
 }
 
-.pill-button {
-
-    position: relative;
-
+.pink-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-
     min-height: 50px;
-
-    padding: 14px 25px;
-
-    border: 1px solid transparent;
-    border-radius: 100px;
-
-    background: var(--chocolate);
-    color: var(--cream);
-
-    font-size: 13px;
-    font-weight: 500;
-
-    text-decoration: none;
-
-    overflow: hidden;
-
-    transition:
-        transform .2s,
-        background .3s;
-
-}
-
-.pill-button:active {
-    transform: scale(.97);
-}
-
-.pill-button:disabled {
-    opacity: .6;
-    cursor: wait;
-}
-
-.map-button {
-    background: var(--rose);
-    color: var(--deep);
-    border-color: #71483225;
-}
-
-.map-button svg {
-    width: 15px;
-    height: 15px;
-}
-
-.details-divider {
-
-    width: 85%;
-
-    margin: 40px auto;
-
+    padding: 14px 28px;
+    background: var(--hot-pink);
+    color: #FFFFFF;
     border: none;
-    border-top: 1px dashed var(--rose);
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 5px 0 #C63170;
+    transition: transform .2s, box-shadow .2s;
+}
 
+.pink-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #C63170;
+}
+
+.detail-divider {
+    border: none;
+    border-top: 2px dashed var(--pink);
+    width: 75%;
+    margin: 45px auto;
 }
 
 .time-layout {
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 18px;
-
-    margin-top: 20px;
-
 }
 
 .time-value {
-
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(38px, 11vw, 54px);
-
-    line-height: 1;
-
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(36px, 11vw, 54px);
+    font-weight: 700;
 }
 
-.time-caption {
-    font-size: 10px;
-    margin-top: 12px;
-    color: var(--chocolate);
-}
-
-.time-dash {
-    font-size: 20px;
-    color: var(--caramel);
-    margin-top: -20px;
-}
-
-.detail-note {
-    font-size: 13px;
-    line-height: 2;
-    margin-top: 25px;
-}
-
-
-/* =====================================
-   05 — FLOATING SCRAPBOOK
-===================================== */
-
-.scrapbook {
-    padding: 45px 22px;
-    background: linear-gradient(
-        145deg,
-        #D4AA92,
-        #B48260
-    );
-    overflow: hidden;
-    color: var(--cream);
-}
-
-.scrapbook-heading {
-    text-align: center;
+.time-label {
     font-size: 11px;
-    letter-spacing: 2px;
-    margin-bottom: 35px;
+    font-weight: 600;
+    color: #B72E66;
+    margin-top: 6px;
 }
 
-.scrapbook-stage {
-    position: relative;
+.time-star {
+    font-size: 24px;
+    color: var(--hot-pink);
+}
+
+/* =========================
+   PHOTO SCRAPBOOK
+========================= */
+
+.gallery {
+    background: var(--light-pink);
+    text-align: center;
+    overflow: hidden;
+}
+
+.gallery-title {
+    font-size: clamp(26px, 7vw, 42px);
+    color: var(--brown);
+    line-height: 1.4;
+}
+
+.gallery-stage {
     display: flex;
     flex-direction: column;
     gap: 35px;
-    height: auto;
-    max-width: 430px;
-    margin: auto;
-    padding: 15px 0 25px;
+    max-width: 480px;
+    margin: 40px auto 10px;
+    padding: 15px 10px;
 }
 
-.scrap-photo {
+.polaroid {
     position: relative;
-    width: 82%;
-    padding: 7px 7px 22px;
-    background: var(--cream);
-    color: var(--chocolate);
-    box-shadow: 0 12px 25px #54332625;
-    will-change: transform;
+    width: 84%;
+    padding: 9px 9px 15px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 10px 22px #75493620;
+    border: 1px solid #FF79AC60;
 }
 
-.scrap-photo img {
-    width: 100%;
+.polaroid img {
     height: auto;
-    aspect-ratio: auto;
+    width: 100%;
     object-fit: contain;
 }
 
-.scrap-photo.first {
+.polaroid.first {
     align-self: flex-start;
-    left: auto;
-    top: auto;
-
     transform:
         translateY(var(--float-one, 0px))
-        rotate(-4deg);
-
-    z-index: 1;
+        rotate(-3deg);
 }
 
-.scrap-photo.second {
+.polaroid.second {
     align-self: flex-end;
-    right: auto;
-    bottom: auto;
-
     transform:
         translateY(var(--float-two, 0px))
-        rotate(4deg);
-
-    z-index: 2;
+        rotate(3deg);
 }
 
-.tape {
-    display: none;
+.polaroid-caption {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #B72E66;
+    padding-top: 12px;
 }
 
-.scrap-star {
-    position: absolute;
-    top: 15px;
-    right: 0;
-    font-size: 30px;
-    color: var(--vanilla);
-    animation: twinkle 3s infinite alternate;
+.gallery .star.one {
+    right: 20px;
+    top: 22%;
+    font-size: 42px;
 }
 
-.scrap-heart {
-    position: absolute;
-    bottom: 25px;
-    left: 0;
-    font-family: Georgia, serif;
-    font-size: 40px;
-    transform: rotate(-15deg);
-    color: var(--peach);
+.gallery .star.two {
+    left: 20px;
+    bottom: 18%;
+    font-size: 38px;
 }
 
-.scrap-caption {
-    text-align: center;
-    font-family: 'Noto Serif Armenian', serif;
-    font-size: 20px;
-    line-height: 1.8;
-    margin-top: 25px;
-}
-
-
-/* =====================================
-   06 — RSVP
-===================================== */
+/* =========================
+   RSVP
+========================= */
 
 .rsvp {
-
-    padding: 55px 25px 60px;
-
-    background:
-        radial-gradient(
-            ellipse at bottom right,
-            #C99D96,
-            transparent 65%
-        ),
-        var(--peach);
-
+    background: var(--cream);
     text-align: center;
-
 }
 
-.rsvp-heart {
-
-    width: 65px;
-    height: 65px;
-
-    margin: 0 auto 20px;
-
+.rsvp-title {
+    margin-bottom: 15px;
 }
 
-.rsvp-heart svg {
-    width: 100%;
-    height: 100%;
-}
-
-.rsvp h2 {
-    font-size: clamp(24px, 6vw, 31px);
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.rsvp-description {
-
-    font-size: 13px;
-    line-height: 2;
-
-    max-width: 320px;
-
-    margin: 0 auto 30px;
-
-}
-
-.rsvp-form {
-
-    max-width: 390px;
-    margin: auto;
-
+.rsvp-card {
+    max-width: 490px;
+    margin: 30px auto 0;
+    padding: 28px 20px;
+    background: white;
+    border: 2px solid var(--light-pink);
+    border-radius: 28px;
+    box-shadow: 0 10px 35px #7549360A;
     text-align: left;
+}
 
+.rsvp-question {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.attendance-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.attendance-option {
+    position: relative;
+    cursor: pointer;
+}
+
+.attendance-option input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.attendance-option span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 100px;
+    padding: 12px 5px;
+    border: 2px solid var(--pink);
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    transition: background .25s, transform .25s;
+}
+
+.attendance-option .emoji {
+    font-size: 25px;
+    line-height: 1;
+    font-style: normal;
+}
+
+.attendance-option input:checked + span {
+    background: var(--light-pink);
+    border-color: var(--hot-pink);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 0 var(--pink);
+}
+
+.attendance-option input:focus-visible + span {
+    outline: 2px solid var(--brown);
+    outline-offset: 3px;
 }
 
 .field-label {
     display: block;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 10px;
-    padding-left: 10px;
 }
 
-.name-input {
-
+.field {
     width: 100%;
-    min-height: 56px;
-
-    border: 1px solid #71483225;
-    border-radius: 100px;
-
-    background: var(--cream);
-
-    padding: 15px 20px;
-
-    color: var(--deep);
-
+    padding: 15px;
+    border: 1.5px solid #EBC6D6;
+    border-radius: 13px;
+    background: #FFF9FB;
+    color: var(--brown);
     font-size: 16px;
-
+    margin-bottom: 22px;
     outline: none;
-
-    margin-bottom: 25px;
-
-    transition:
-        border-color .3s,
-        box-shadow .3s;
-
 }
 
-.name-input::placeholder {
+.field:focus {
+    border-color: var(--hot-pink);
+    box-shadow: 0 0 0 3px #FF79AC20;
+}
+
+.field::placeholder {
+    color: #A78D83;
     font-size: 13px;
-    color: #94776B;
 }
 
-.name-input:focus {
-    border-color: var(--chocolate);
-    box-shadow: 0 0 0 3px #71483210;
-}
-
-.attendance-options {
-    display: grid;
-    gap: 12px;
-}
-
-.radio-option {
-
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    min-height: 58px;
-
-    padding: 14px 18px;
-
-    border: 1px solid #71483225;
-    border-radius: 30px;
-
-    background: var(--cream);
-
-    font-size: 13px;
-    line-height: 1.7;
-
-    cursor: pointer;
-
-    transition:
-        background .3s,
-        color .3s,
-        transform .2s;
-
-}
-
-.radio-option input {
-
-    position: absolute;
-
-    width: 1px;
-    height: 1px;
-
-    opacity: 0;
-
-}
-
-.radio-circle {
-
-    width: 20px;
-    height: 20px;
-
-    border-radius: 50%;
-    border: 1px solid var(--caramel);
-
-    display: grid;
-    place-items: center;
-
-    flex-shrink: 0;
-
-}
-
-.radio-circle::after {
-
-    content: '';
-
-    width: 10px;
-    height: 10px;
-
-    border-radius: 50%;
-
-    background: var(--chocolate);
-
-    transform: scale(0);
-
-    transition: transform .2s;
-
-}
-
-.radio-option input:checked
-+ .radio-circle::after {
-    transform: scale(1);
-}
-
-.radio-option:has(input:checked) {
-    background: var(--rose);
-    border-color: var(--chocolate);
-    color: var(--deep);
-}
-
-.radio-option:has(input:focus-visible) {
-    outline: 2px solid var(--deep);
-    outline-offset: 3px;
+textarea.field {
+    resize: vertical;
+    min-height: 100px;
 }
 
 .submit-button {
-
     width: 100%;
-
-    min-height: 56px;
-
-    margin-top: 25px;
-
-    box-shadow:
-        0 8px 20px #71483225;
-
 }
 
-.submit-button::after {
-
-    content: '';
-
-    position: absolute;
-
-    top: 0;
-    left: -100%;
-
-    width: 50%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #FFFFFF35,
-        transparent
-    );
-
-    transform: skewX(-20deg);
-
-    animation: buttonShine 5s infinite;
-
-    pointer-events: none;
-
-}
-
-@keyframes buttonShine {
-
-    0%, 60% {
-        left: -100%;
-    }
-
-    90%, 100% {
-        left: 150%;
-    }
-
+.submit-button:disabled {
+    opacity: .6;
+    cursor: wait;
 }
 
 .form-error {
-
-    color: #873C35;
-
     font-size: 12px;
-    line-height: 1.8;
-
+    color: #B72E66;
     text-align: center;
-
     margin-top: 15px;
-
 }
-
-/* =====================================
-   RSVP CONFIRMATION
-===================================== */
 
 .success {
     display: none;
+    text-align: center;
     padding: 25px 0;
 }
 
 .success.show {
     display: block;
-    animation: successAppear .7s ease;
+    animation: appear .5s ease;
 }
 
-@keyframes successAppear {
-
-    from {
-        opacity: 0;
-        transform: scale(.92);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-}
-
-.success-circle {
-
-    width: 85px;
-    height: 85px;
-
+.success-icon {
+    width: 80px;
+    height: 80px;
     margin: 0 auto 25px;
-
     border-radius: 50%;
-
-    background: var(--metal);
-
+    background: var(--light-pink);
+    color: #B72E66;
     display: grid;
     place-items: center;
-
-    box-shadow:
-        0 10px 25px #71483225;
-
-}
-
-.success-circle svg {
-
-    width: 38px;
-    height: 38px;
-
-    fill: none;
-    stroke: var(--chocolate);
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-
-}
-
-.success-circle path {
-
-    stroke-dasharray: 50;
-    stroke-dashoffset: 50;
-
-    animation: drawCheck
-        .8s .2s forwards;
-
-}
-
-@keyframes drawCheck {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-.success h3 {
-    font-size: 27px;
-    margin-bottom: 20px;
+    font-size: 40px;
 }
 
 .success p {
+    margin: 15px 0;
     font-size: 14px;
     line-height: 2;
     overflow-wrap: anywhere;
 }
 
 .edit-response {
-
     border: none;
     background: none;
-
-    color: var(--chocolate);
-
-    font-size: 12px;
-
+    color: var(--brown);
     text-decoration: underline;
-    text-underline-offset: 4px;
-
-    min-height: 44px;
-
-    margin-top: 20px;
-
+    font-size: 12px;
+    padding: 15px;
 }
 
-/* =====================================
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================
    FOOTER
-===================================== */
+========================= */
 
 footer {
-
-    position: relative;
-
-    padding: 55px 20px 30px;
-
+    background: var(--light-pink);
     text-align: center;
-
-    background:
-        radial-gradient(
-            ellipse at top,
-            #B48260,
-            transparent 80%
-        ),
-        var(--chocolate);
-
-    color: var(--cream);
-
-    overflow: hidden;
-
+    padding: 50px 20px 35px;
+    border-top: 3px dashed var(--pink);
 }
 
-.footer-star {
-    font-size: 30px;
-    color: var(--peach);
+.footer-stars {
+    color: var(--hot-pink);
+    font-size: 25px;
+    letter-spacing: 10px;
     margin-bottom: 20px;
 }
 
-footer h2 {
-    font-size: 24px;
-    line-height: 1.7;
-}
-
 .footer-name {
-
     font-family: 'Noto Serif Armenian', serif;
-
-    font-size: 42px;
-
+    font-size: 38px;
+    color: #B72E66;
+    font-weight: 700;
     margin: 15px 0 30px;
-
-    color: var(--peach);
-
-}
-
-.footer-line {
-
-    width: 65px;
-    height: 1px;
-
-    margin: 30px auto;
-
-    background: var(--metal);
-
 }
 
 .brand {
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 30px;
-
-    letter-spacing: 5px;
-
+    font-family: 'Outfit', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 6px;
 }
 
 .brand-caption {
     font-size: 10px;
-    letter-spacing: .5px;
     margin-top: 10px;
-    color: var(--peach);
 }
 
-/* =====================================
+/* =========================
    SCROLL ANIMATIONS
-===================================== */
-
-.reveal {
-    opacity: 1;
-}
+========================= */
 
 .js .reveal {
-
     opacity: 0;
-
-    transform: translateY(30px);
-
-    transition:
-        opacity .85s ease,
-        transform .85s ease;
-
+    transform: translateY(25px);
+    transition: opacity .7s ease, transform .7s ease;
 }
 
 .js .reveal.visible {
@@ -1886,97 +1170,48 @@ footer h2 {
     transform: translateY(0);
 }
 
-.js .editorial-photo {
-    transform:
-        translateX(35px)
-        rotate(14deg);
-
-    opacity: 0;
-
-    transition:
-        transform 1.1s .2s ease,
-        opacity .8s .2s;
-}
-
-.js .editorial.visible .editorial-photo {
-    transform: translateX(0) rotate(8deg);
-    opacity: 1;
-}
-
-/* =====================================
-   MOBILE OPTIMIZATION
-===================================== */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 380px) {
-
-    .editorial {
-        padding-left: 18px;
-        padding-right: 18px;
+    section {
+        padding: 50px 18px;
     }
 
-    .editorial-composition {
-        min-height: 270px;
+    .countdown {
+        padding: 40px 12px;
     }
 
-    .age-caption {
-        top: 195px;
+    .countdown-grid {
+        gap: 5px;
     }
 
-    .calendar-section {
-        padding-left: 17px;
-        padding-right: 17px;
+    .countdown-box {
+        border-radius: 13px;
+    }
+
+    .rsvp-card {
+        padding: 25px 14px;
     }
 
     .weekday {
         font-size: 9px;
     }
 
-    .day {
-        font-size: 20px;
-    }
-
     .day.special svg {
-        width: 39px;
-        height: 39px;
+        width: 38px;
+        height: 38px;
     }
-
-    .rsvp {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .radio-option {
-        font-size: 12px;
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
-    .time-layout {
-        gap: 12px;
-    }
-
-}
-
-@media (min-width: 480px) {
-
-    .editorial-composition {
-        min-height: 380px;
-    }
-
-    .age-caption {
-        top: 280px;
-    }
-
 }
 
 @media (max-height: 550px) {
-
-    .intro-heading {
+    .intro-subtitle {
         margin-bottom: 25px;
     }
 
     .envelope {
-        width: min(220px, 65vw);
+        width: 210px;
     }
 
     .tap-text {
@@ -1984,207 +1219,76 @@ footer h2 {
     }
 
     .intro-brand {
-        bottom: 15px;
+        bottom: 20px;
     }
-
-}
-
-@media (min-width: 700px) {
-
-    main {
-        box-shadow: 0 0 70px #71483220;
-    }
-
-    .music-button {
-        right: calc(
-            (100vw - 560px) / 2 + 18px
-        );
-    }
-
 }
 
 @media (prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {
-
         animation: none !important;
         transition-duration: .01ms !important;
         scroll-behavior: auto !important;
-
-    }
-
-    .js .reveal,
-    .js .editorial-photo {
-        opacity: 1;
     }
 
     .js .reveal {
+        opacity: 1;
         transform: none;
     }
 
-    .calendar-heart-path,
-    .success-circle path {
-        stroke-dashoffset: 0 !important;
+    .calendar-heart {
+        stroke-dashoffset: 0;
     }
-
-}
-.envelope-back {
-    z-index: 1;
 }
 
-.letter {
-    z-index: 3;
-}
-
-.envelope-left,
-.envelope-right,
-.envelope-bottom {
-    z-index: 4;
-}
-
-.flap {
-    z-index: 5;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
-
-.envelope.open .flap {
-    z-index: 0;
-}
-
-.heart-seal {
-    z-index: 6;
-}
-</style>
-   <style>
-.countdown {
-    padding: 50px 18px;
-    background: #653C32;
-    color: #FFF8F0;
-    text-align: center;
-}
-
-.countdown-heading {
-    font-family: 'Noto Serif Armenian', serif;
-    font-size: 19px;
-    font-weight: 500;
-    line-height: 1.7;
-    margin-bottom: 30px;
-    letter-spacing: 0;
-}
-
-.countdown-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
-    max-width: 450px;
-    margin: 0 auto;
-}
-
-.countdown-box {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 16px;
-    padding: 22px 2px;
-}
-
-.countdown-number {
-    display: block;
-    font-family: 'Noto Sans Armenian', sans-serif;
-    font-size: clamp(26px, 8vw, 42px);
-    font-weight: 700;
-    line-height: 1;
-    font-variant-numeric: tabular-nums;
-}
-
-.countdown-label {
-    display: block;
-    font-size: 10px;
-    margin-top: 12px;
-    color: #E8CBB7;
-}
-
-.countdown-heart {
-    display: none;
-}
 </style>
 </head>
 
 <body>
 
-<!-- ==================================
-     BACKGROUND MUSIC
-=================================== -->
+<!-- BACKGROUND MUSIC -->
 
 <audio
-    id="background-music"
+    id="music"
     src="dancing-queen.mp3"
     preload="none"
-    loop
-></audio>
+    loop>
+</audio>
 
 <button
-    type="button"
     class="music-button"
     id="music-button"
     aria-label="Միացնել երաժշտությունը"
-    aria-pressed="false"
->
-
-    <svg
-        class="muted-icon"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-    >
-
-        <path d="M9 18V5l11-2v13"/>
-
-        <ellipse cx="6" cy="18" rx="3" ry="2"/>
-
-        <ellipse cx="17" cy="16" rx="3" ry="2"/>
-
-        <path d="M3 3l18 18"/>
-
-    </svg>
-
-    <div class="sound-bars" aria-hidden="true">
-
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </div>
-
+    aria-pressed="false">
+    ♫
 </button>
 
-<!-- ==================================
-     OPENING ENVELOPE
-=================================== -->
+<!-- OPENING SCREEN -->
 
 <div class="intro" id="intro">
 
-    <div class="intro-outline"></div>
+    <div class="intro-border"></div>
 
-    <div
-        class="sparkles"
-        id="sparkles"
-        aria-hidden="true"
-    ></div>
+    <span class="star" style="top:12%;left:12%;font-size:35px">✦</span>
+    <span class="star" style="top:19%;right:12%;font-size:23px">✧</span>
+    <span class="star" style="bottom:22%;left:10%;font-size:28px">✧</span>
+    <span class="star" style="bottom:18%;right:12%;font-size:42px">✦</span>
 
     <div class="intro-content">
 
-        <p class="intro-heading">
+        <h1 class="intro-title western">
+            Let's Party!
+        </h1>
+
+        <p class="intro-subtitle">
             ՀՐԱՎԻՐԱՏՈՄՍ
         </p>
 
         <button
             class="open-button"
             id="open-button"
-            aria-label="Բացել հրավիրատոմսը"
-        >
+            aria-label="Բացել հրավիրատոմսը">
 
             <div class="envelope" id="envelope">
 
@@ -2192,9 +1296,7 @@ footer h2 {
 
                 <div class="letter">
 
-                    <span class="letter-star">
-                        ✦
-                    </span>
+                    <span class="letter-stars">✦ ♡ ✦</span>
 
                     <span class="letter-name">
                         Մարիա
@@ -2207,93 +1309,46 @@ footer h2 {
                 </div>
 
                 <div class="envelope-left"></div>
-
                 <div class="envelope-right"></div>
-
                 <div class="envelope-bottom"></div>
-
                 <div class="flap"></div>
 
-                <div class="heart-seal">
+                <div class="seal">
 
                     <svg viewBox="0 0 100 100">
 
                         <defs>
-
                             <linearGradient
-                                id="heart-metal"
-                                x1="0%"
-                                y1="0%"
-                                x2="100%"
-                                y2="100%"
-                            >
+                                id="metal"
+                                x1="0%" y1="0%"
+                                x2="100%" y2="100%">
 
-                                <stop
-                                    offset="0%"
-                                    stop-color="#89594E"
-                                />
-
-                                <stop
-                                    offset="25%"
-                                    stop-color="#E8B9A7"
-                                />
-
-                                <stop
-                                    offset="42%"
-                                    stop-color="#FFF2DF"
-                                />
-
-                                <stop
-                                    offset="60%"
-                                    stop-color="#B77B68"
-                                />
-
-                                <stop
-                                    offset="80%"
-                                    stop-color="#F5D6C2"
-                                />
-
-                                <stop
-                                    offset="100%"
-                                    stop-color="#9E6455"
-                                />
+                                <stop offset="0%" stop-color="#D44A88"/>
+                                <stop offset="25%" stop-color="#FFB6D6"/>
+                                <stop offset="45%" stop-color="#FFF4FA"/>
+                                <stop offset="65%" stop-color="#F77BAC"/>
+                                <stop offset="100%" stop-color="#D94B87"/>
 
                             </linearGradient>
-
                         </defs>
 
                         <path
                             d="M50 88
-                               C38 76 8 56 8 33
-                               C8 9 36 5 50 27
-                               C64 5 92 9 92 33
-                               C92 56 62 76 50 88Z"
-                            fill="url(#heart-metal)"
-                            stroke="#A16D5D"
-                            stroke-width="1.5"
-                        />
-
-                        <path
-                            d="M50 80
-                               C36 68 15 50 15 33
-                               C15 17 36 12 50 35
-                               C64 12 85 17 85 33
-                               C85 50 64 68 50 80Z"
-                            fill="none"
-                            stroke="#FFF2DF"
-                            stroke-opacity=".5"
-                        />
+                            C35 76 8 55 8 33
+                            C8 9 36 5 50 27
+                            C64 5 92 9 92 33
+                            C92 55 65 76 50 88Z"
+                            fill="url(#metal)"
+                            stroke="#D94B87"
+                            stroke-width="1.5"/>
 
                         <text
                             x="50"
                             y="56"
                             text-anchor="middle"
-                            font-family="Cormorant Garamond"
-                            font-size="30"
-                            fill="#714832"
-                        >
-                            11
-                        </text>
+                            font-family="Rye"
+                            font-size="25"
+                            fill="#754936">11</text>
 
                     </svg>
 
@@ -2315,157 +1370,111 @@ footer h2 {
 
 </div>
 
-<!-- CINEMATIC TRANSITION -->
-
-<div
-    class="cinematic"
-    id="cinematic"
-    aria-hidden="true"
->
-
+<div class="transition-photo" id="transition-photo">
     <img src="IMG_5941.JPG" alt="">
-
 </div>
 
-<div
-    class="confetti-layer"
-    id="confetti-layer"
-    aria-hidden="true"
-></div>
+<div class="confetti-layer" id="confetti-layer"></div>
 
-<!-- ==================================
-     MAIN INVITATION
-=================================== -->
+<main id="main">
 
-<main id="main-content">
-
-<!-- 01 — FIRST PHOTO -->
+<!-- FIRST PHOTO — NO TEXT -->
 
 <header class="hero">
 
     <img
         src="IMG_5941.JPG"
         alt="Մարիա"
-        fetchpriority="high"
-    >
+        fetchpriority="high">
 
-    <div class="hero-outline"></div>
+    <div class="hero-frame"></div>
 
     <a
-        href="#invitation"
-        class="scroll-button"
-        aria-label="Շարունակել"
-    >
-
-        <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-        >
-
-            <path d="M12 4v15M5 12l7 7 7-7"/>
-
-        </svg>
-
+        href="#birthday"
+        class="scroll-arrow"
+        aria-label="Շարունակել">
+        ↓
     </a>
 
 </header>
 
-<!-- 02 — BIRTHDAY EDITORIAL -->
+<!-- ANIMATED PARTY STRIP -->
 
-<section
-    class="editorial reveal"
-    id="invitation"
->
+<div class="party-strip" aria-hidden="true">
 
-    <div class="editorial-top">
+    <div class="strip-track">
 
-        <p class="eyebrow">
-            ԾՆՆԴՅԱՆ ՀՐԱՎԻՐԱՏՈՄՍ
-        </p>
-
-        <span class="edition-number">
-            No. 11
-        </span>
+        <span>YEEHAW! ✦ BIRTHDAY GIRL ♡ MARIA TURNS 11 ✦ </span>
+        <span>YEEHAW! ✦ BIRTHDAY GIRL ♡ MARIA TURNS 11 ✦ </span>
+        <span>YEEHAW! ✦ BIRTHDAY GIRL ♡ MARIA TURNS 11 ✦ </span>
+        <span>YEEHAW! ✦ BIRTHDAY GIRL ♡ MARIA TURNS 11 ✦ </span>
 
     </div>
 
-    <h1 class="editorial-name">
+</div>
+
+<!-- BIRTHDAY GIRL -->
+
+<section class="birthday reveal" id="birthday">
+
+    <span class="star one">✦</span>
+    <span class="star two">✧</span>
+    <span class="star three">✦</span>
+
+    <p class="eyebrow">
+        ԾՆՆԴՅԱՆ ՏՈՆ
+    </p>
+
+    <h1 class="birthday-title">
         Մարիա
     </h1>
 
-    <div class="editorial-composition">
+    <div class="birthday-age">
+        11
+    </div>
 
-        <div class="big-age">
-            11
-        </div>
+    <p class="age-label">
+        ՏԱՐԵԿԱՆ
+    </p>
 
-        <div class="editorial-photo">
+    <div class="birthday-photo">
 
-            <img
-                src="IMG_5942.JPG"
-                alt="Մարիայի լուսանկարը"
-                loading="lazy"
-            >
-
-            <p class="photo-caption">
-                23.11.2026
-            </p>
-
-        </div>
-
-        <p class="age-caption">
-            ՏԱՐԵԿԱՆ
-        </p>
-
-        <span class="editorial-star star-one">
-            ✦
-        </span>
-
-        <span class="editorial-star star-two">
-            ✧
-        </span>
-
-        <span class="editorial-star star-three">
-            ✦
-        </span>
+        <img
+            src="IMG_5942.JPG"
+            alt="Մարիայի լուսանկարը"
+            loading="lazy">
 
     </div>
 
-    <div class="invitation-copy">
+    <h2 class="birthday-message">
+        Սիրելի՛ ընկերներ
+    </h2>
 
-        <h2>
-            Սիրելի՛ ընկերներ
-        </h2>
+    <p class="description">
 
-        <p>
+        Սիրով հրավիրում եմ ձեզ՝ միասին նշելու
+        իմ 11-րդ տարեդարձը։
 
-            Սիրով հրավիրում եմ ձեզ՝ միասին
-            նշելու իմ 11-րդ տարեդարձը։
+        <br><br>
 
-            <br><br>
+        Մեզ սպասվում է ուրախությամբ,
+        հետաքրքիր խաղերով, ժպիտներով
+        և անմոռանալի պահերով լի մի գեղեցիկ օր։
 
-            Մեզ սպասվում է ուրախությամբ,
-            ժպիտներով և անմոռանալի պահերով
-            լի մի գեղեցիկ օր։
+        <br><br>
 
-            <br><br>
+        Եկե՛ք միասին վայելենք այս
+        հրաշալի արկածը։
 
-            Եկե՛ք միասին ստեղծենք
-            նոր ու գեղեցիկ հիշողություններ։
+    </p>
 
-        </p>
-
-        <div class="handwritten-heart">
-            ♡
-        </div>
-
+    <div class="heart-divider">
+        ✦ ♡ ✦
     </div>
 
 </section>
 
-<!-- 03 — CALENDAR -->
+<!-- CALENDAR -->
 
 <section class="calendar-section reveal">
 
@@ -2473,21 +1482,11 @@ footer h2 {
         ՆՇԵ՛Ք ՕՐԱՑՈՒՅՑՈՒՄ
     </p>
 
-    <h2 class="section-title">
+    <h2>
         Սպասված օրը
     </h2>
 
     <div class="calendar-paper">
-
-        <div class="calendar-rings">
-
-            <span class="calendar-ring"></span>
-            <span class="calendar-ring"></span>
-            <span class="calendar-ring"></span>
-            <span class="calendar-ring"></span>
-            <span class="calendar-ring"></span>
-
-        </div>
 
         <div class="calendar-month">
             Նոյեմբեր
@@ -2511,20 +1510,23 @@ footer h2 {
 
     </div>
 
-    <p class="event-date">
+    <div class="event-date">
         23.11.2026
-    </p>
+    </div>
 
     <p class="event-weekday">
         Երկուշաբթի
     </p>
 
 </section>
+
+<!-- COUNTDOWN -->
+
 <section class="countdown reveal">
 
-    <p class="countdown-heading">
-        ✦ ՍՊԱՍՎԱԾ ՏՈՆԻՆ ՄՆԱՑԵԼ Է ✦
-    </p>
+    <h2 id="countdown-heading">
+        Մինչև մեր ուրախ տոնը ✦
+    </h2>
 
     <div class="countdown-grid">
 
@@ -2550,10 +1552,9 @@ footer h2 {
 
     </div>
 
-    <div class="countdown-heart">♡</div>
-
 </section>
-<!-- 04 — EVENT DETAILS -->
+
+<!-- EVENT DETAILS -->
 
 <section class="details reveal">
 
@@ -2561,27 +1562,20 @@ footer h2 {
         ԵՐԲ ԵՎ ՈՐՏԵՂ
     </p>
 
-    <h2 class="section-title">
+    <h2>
         Տոնի մանրամասները
     </h2>
 
-    <div class="location-icon">
+    <div class="detail-icon">
 
-        <svg viewBox="0 0 32 32">
-
-            <path
-                d="M16 29S5 18 5 12
-                   a11 11 0 0 1 22 0
-                   c0 6-11 17-11 17Z"
-            />
-
-            <circle cx="16" cy="12" r="4"/>
-
+        <svg viewBox="0 0 24 24">
+            <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+            <circle cx="12" cy="10" r="3"/>
         </svg>
 
     </div>
 
-    <p class="detail-label">
+    <p class="eyebrow">
         ՏՈՆԱԿԱՏԱՐՈՒԹՅԱՆ ՎԱՅՐԸ
     </p>
 
@@ -2590,329 +1584,230 @@ footer h2 {
     </h3>
 
     <a
+        class="pink-button"
         href="https://maps.app.goo.gl/aH7XU68Xqv7oUrGE9"
         target="_blank"
-        rel="noopener noreferrer"
-        class="pill-button map-button"
-    >
+        rel="noopener noreferrer">
 
-        Ինչպե՞ս հասնել
-
-        <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-        >
-
-            <path d="M6 18L18 6M7 6h11v11"/>
-
-        </svg>
+        Ինչպե՞ս հասնել ↗
 
     </a>
 
-    <hr class="details-divider">
+    <hr class="detail-divider">
 
-    <div class="clock-icon">
+    <div class="detail-icon">
 
-        <svg viewBox="0 0 32 32">
-
-            <circle cx="16" cy="16" r="13"/>
-
-            <path d="M16 7v9l6 4"/>
-
+        <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 3"/>
         </svg>
 
     </div>
 
-    <p class="detail-label">
+    <p class="eyebrow">
         ՏՈՆԱԿԱՏԱՐՈՒԹՅԱՆ ԺԱՄԸ
     </p>
 
     <div class="time-layout">
 
         <div>
-
-            <p class="time-value">
-                13:30
-            </p>
-
-            <p class="time-caption">
-                Սկիզբ
-            </p>
-
+            <div class="time-value">13:30</div>
+            <p class="time-label">Սկիզբ</p>
         </div>
 
-        <span class="time-dash">
-            —
-        </span>
+        <span class="time-star">✦</span>
 
         <div>
-
-            <p class="time-value">
-                17:30
-            </p>
-
-            <p class="time-caption">
-                Ավարտ
-            </p>
-
+            <div class="time-value">17:30</div>
+            <p class="time-label">Ավարտ</p>
         </div>
 
     </div>
 
-    <p class="detail-note">
+    <p class="description">
         Սիրով սպասում եմ ձեզ ժամը 13:30-ին։
     </p>
 
 </section>
 
-<!-- 05 — SCRAPBOOK -->
+<!-- PHOTO GALLERY -->
 
-<section class="scrapbook reveal">
+<section class="gallery reveal">
 
-    <p class="scrapbook-heading">
-        ԺՊԻՏՆԵՐ ԵՎ ՀԻՇՈՂՈՒԹՅՈՒՆՆԵՐ
+    <span class="star one">✦</span>
+    <span class="star two">✧</span>
+
+    <p class="eyebrow">
+        BIRTHDAY GIRL
     </p>
 
-    <div class="scrapbook-stage" id="scrapbook">
+    <h2 class="gallery-title western">
+        Meet Our<br>Cowgirl!
+    </h2>
 
-        <span class="scrap-star">
-            ✦
-        </span>
+    <p class="description">
+        Ժպիտներ, արկածներ և գեղեցիկ հիշողություններ։
+    </p>
 
-        <div class="scrap-photo first">
+    <div class="gallery-stage" id="gallery-stage">
 
-            <div class="tape"></div>
+        <div class="polaroid first">
 
             <img
                 src="IMG_5948.JPG"
-                alt="Մարիայի լուսանկարը"
-                loading="lazy"
-            >
+                alt="Մարիան ձիու հետ"
+                loading="lazy">
 
-            <p class="photo-caption">
-                ♡
+            <p class="polaroid-caption">
+                Yeehaw! ♡
             </p>
 
         </div>
 
-        <div class="scrap-photo second">
-
-            <div class="tape"></div>
+        <div class="polaroid second">
 
             <img
                 src="IMG_5949.JPG"
                 alt="Մարիայի լուսանկարը"
-                loading="lazy"
-            >
+                loading="lazy">
 
-            <p class="photo-caption">
-                23.11.2026
+            <p class="polaroid-caption">
+                Birthday Girl ✦
             </p>
 
         </div>
 
-        <span class="scrap-heart">
-            ♡
-        </span>
-
     </div>
-
-    <p class="scrap-caption">
-
-        Ամենագեղեցիկ պահերը՝
-        <br>
-        միասին։
-
-    </p>
 
 </section>
 
-<!-- 06 — RSVP -->
+<!-- RSVP -->
 
 <section class="rsvp reveal">
 
-    <div id="form-content">
+    <p class="eyebrow">
+        RSVP
+    </p>
 
-        <div class="rsvp-heart">
+    <h2 class="rsvp-title">
+        Կմիանա՞ք մեր տոնին
+    </h2>
 
-            <svg viewBox="0 0 100 100">
+    <p class="description">
 
-                <defs>
+        Խնդրում եմ նախապես տեղեկացնել՝
+        կկարողանա՞ք մասնակցել իմ
+        ծննդյան տոնին։
 
-                    <linearGradient
-                        id="rsvp-metal"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%"
-                    >
+    </p>
 
-                        <stop
-                            offset="0%"
-                            stop-color="#89594E"
-                        />
+    <div class="rsvp-card">
 
-                        <stop
-                            offset="35%"
-                            stop-color="#FFF2DF"
-                        />
+        <form id="rsvp-form">
 
-                        <stop
-                            offset="65%"
-                            stop-color="#B77B68"
-                        />
-
-                        <stop
-                            offset="100%"
-                            stop-color="#E8B9A7"
-                        />
-
-                    </linearGradient>
-
-                </defs>
-
-                <path
-                    d="M50 88
-                       C38 76 8 56 8 33
-                       C8 9 36 5 50 27
-                       C64 5 92 9 92 33
-                       C92 56 62 76 50 88Z"
-                    fill="url(#rsvp-metal)"
-                    stroke="#B48260"
-                />
-
-            </svg>
-
-        </div>
-
-        <h2>
-            Մասնակցության
-            <br>
-            հաստատում
-        </h2>
-
-        <p class="rsvp-description">
-
-            Խնդրում եմ նախապես տեղեկացնել՝
-            կկարողանա՞ք մասնակցել
-            իմ ծննդյան տոնին։
-
-        </p>
-
-        <form class="rsvp-form" id="rsvp-form">
-
-            <label
-                class="field-label"
-                for="guest-name"
-            >
-                Ձեր անունը և ազգանունը
-            </label>
-
-            <input
-                type="text"
-                id="guest-name"
-                name="guest_name"
-                class="name-input"
-                placeholder="Անուն, ազգանուն"
-                autocomplete="name"
-                maxlength="100"
-                required
-            >
-
-            <p class="field-label">
+            <p class="rsvp-question">
                 Կմասնակցե՞ք տոնին
             </p>
 
             <div class="attendance-options">
 
-                <label class="radio-option">
+                <label class="attendance-option">
 
                     <input
                         type="radio"
                         name="attendance"
                         value="yes"
-                        required
-                    >
-
-                    <span class="radio-circle"></span>
+                        required>
 
                     <span>
-                        Այո՛, սիրով կմասնակցեմ
+                        <i class="emoji">🤠</i>
+                        Այո՛, կմասնակցեմ
                     </span>
 
                 </label>
 
-                <label class="radio-option">
+                <label class="attendance-option">
 
                     <input
                         type="radio"
                         name="attendance"
-                        value="no"
-                    >
-
-                    <span class="radio-circle"></span>
+                        value="no">
 
                     <span>
-                        Ցավոք, չեմ կարողանա մասնակցել
+                        <i class="emoji">🤍</i>
+                        Ցավոք, չեմ մասնակցի
                     </span>
 
                 </label>
 
             </div>
 
+            <label class="field-label" for="guest-name">
+                Ձեր անունը և ազգանունը
+            </label>
+
+            <input
+                class="field"
+                type="text"
+                id="guest-name"
+                name="name"
+                placeholder="Անուն, ազգանուն"
+                autocomplete="name"
+                maxlength="100"
+                required>
+
+            <label class="field-label" for="message">
+                Հաղորդագրություն (ըստ ցանկության)
+            </label>
+
+            <textarea
+                class="field"
+                id="message"
+                name="message"
+                maxlength="500"
+                placeholder="Գրեք ձեր հաղորդագրությունը..."></textarea>
+
             <button
                 type="submit"
-                class="pill-button submit-button"
-                id="submit-button"
-            >
-                Հաստատել պատասխանը
+                class="pink-button submit-button"
+                id="submit-button">
+
+                Հաստատել պատասխանը ✦
+
             </button>
 
             <p
                 class="form-error"
                 id="form-error"
-                aria-live="polite"
-            ></p>
+                aria-live="polite">
+            </p>
 
         </form>
 
-    </div>
+        <div class="success" id="success" aria-live="polite">
 
-    <!-- RSVP SUCCESS -->
+            <div class="success-icon">
+                ♡
+            </div>
 
-    <div
-        class="success"
-        id="success"
-        aria-live="polite"
-    >
+            <h2>
+                Շնորհակալություն
+            </h2>
 
-        <div class="success-circle">
+            <p id="success-name"></p>
 
-            <svg viewBox="0 0 32 32">
+            <p id="success-message"></p>
 
-                <path d="M7 16l6 6L26 9"/>
+            <button
+                class="edit-response"
+                id="edit-response"
+                type="button">
 
-            </svg>
+                Փոխել պատասխանը
+
+            </button>
 
         </div>
-
-        <h3>
-            Շնորհակալություն
-        </h3>
-
-        <p id="success-name"></p>
-
-        <p id="success-text"></p>
-
-        <button
-            type="button"
-            class="edit-response"
-            id="edit-response"
-        >
-            Փոխել պատասխանը
-        </button>
 
     </div>
 
@@ -2920,10 +1815,10 @@ footer h2 {
 
 <!-- FOOTER -->
 
-<footer class="reveal">
+<footer>
 
-    <div class="footer-star">
-        ✦
+    <div class="footer-stars">
+        ✦ ♡ ✦
     </div>
 
     <h2>
@@ -2933,8 +1828,6 @@ footer h2 {
     <div class="footer-name">
         Մարիա
     </div>
-
-    <div class="footer-line"></div>
 
     <div class="brand">
         Invitéa
@@ -2950,55 +1843,45 @@ footer h2 {
 
 <script>
 
-/* =====================================
-   INITIALIZATION
-===================================== */
+/* =========================
+   SETTINGS
+========================= */
 
-document.documentElement.classList.add('js');
+const EVENT_DATE = "2026-11-23T13:30:00+04:00";
 
-document.body.classList.add('locked');
+// Enable only when recording a portfolio demo.
+// This does not change the displayed event date.
+const DEMO_COUNTDOWN = false;
 
-const intro =
-    document.getElementById('intro');
-
-const envelope =
-    document.getElementById('envelope');
-
-const cinematic =
-    document.getElementById('cinematic');
-
-const main =
-    document.getElementById('main-content');
-
-const music =
-    document.getElementById('background-music');
-
-const musicButton =
-    document.getElementById('music-button');
+// Insert your compatible RSVP endpoint here.
+const RSVP_ENDPOINT = "";
 
 const reducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
 ).matches;
 
-let invitationOpened = false;
+document.documentElement.classList.add('js');
+document.body.classList.add('locked');
 
+const main = document.getElementById('main');
 main.inert = true;
 
-/* =====================================
-   BACKGROUND MUSIC — DANCING QUEEN
-===================================== */
+/* =========================
+   MUSIC
+========================= */
 
-music.volume = 0.45;
+const music = document.getElementById('music');
+const musicButton = document.getElementById('music-button');
 
-function updateMusicButton() {
+music.volume = .5;
 
-    const playing =
-        !music.paused && !music.ended;
+function updateMusic() {
 
-    musicButton.classList.toggle(
-        'playing',
-        playing
-    );
+    const playing = !music.paused && !music.ended;
+
+    musicButton.classList.toggle('playing', playing);
+
+    musicButton.textContent = playing ? '♫' : '♪';
 
     musicButton.setAttribute(
         'aria-pressed',
@@ -3011,148 +1894,66 @@ function updateMusicButton() {
             ? 'Անջատել երաժշտությունը'
             : 'Միացնել երաժշտությունը'
     );
-
 }
 
 function playMusic() {
-
     music.play()
-        .then(updateMusicButton)
-        .catch(function () {
-
-            updateMusicButton();
-
-        });
-
+        .then(updateMusic)
+        .catch(updateMusic);
 }
 
-musicButton.addEventListener(
-    'click',
-    function () {
+musicButton.addEventListener('click', () => {
 
-        if (music.paused) {
-
-            playMusic();
-
-        } else {
-
-            music.pause();
-
-        }
-
-    }
-);
-
-music.addEventListener(
-    'play',
-    updateMusicButton
-);
-
-music.addEventListener(
-    'pause',
-    updateMusicButton
-);
-
-music.addEventListener(
-    'error',
-    updateMusicButton
-);
-
-/* =====================================
-   FLOATING SPARKLES
-===================================== */
-
-const sparkles =
-    document.getElementById('sparkles');
-
-if (!reducedMotion) {
-
-    for (let i = 0; i < 25; i++) {
-
-        const star =
-            document.createElement('span');
-
-        star.className = 'sparkle';
-
-        star.textContent =
-            i % 3 === 0 ? '✦' : '✧';
-
-        star.style.left =
-            Math.random() * 100 + '%';
-
-        star.style.top =
-            Math.random() * 100 + '%';
-
-        star.style.fontSize =
-            7 + Math.random() * 20 + 'px';
-
-        star.style.animationDelay =
-            -Math.random() * 5 + 's';
-
-        star.style.animationDuration =
-            2 + Math.random() * 4 + 's';
-
-        sparkles.appendChild(star);
-
+    if (music.paused) {
+        playMusic();
+    } else {
+        music.pause();
     }
 
-}
+});
 
-/* =====================================
-   ROSE-GOLD CONFETTI
-===================================== */
+music.addEventListener('play', updateMusic);
+music.addEventListener('pause', updateMusic);
+music.addEventListener('error', updateMusic);
 
-function launchConfetti(amount = 65) {
+/* =========================
+   CONFETTI
+========================= */
+
+function confetti(amount = 75) {
 
     if (reducedMotion) return;
 
-    const layer =
-        document.getElementById('confetti-layer');
+    const layer = document.getElementById('confetti-layer');
 
     const colors = [
-
-        '#C99D96',
-        '#B48260',
-        '#F5D6C2',
-        '#E8B9A7',
-        '#FFF2DF',
-        '#B77B68'
-
+        '#FF79AC',
+        '#F34D91',
+        '#FFDCEB',
+        '#FFF8EE',
+        '#F5C56B',
+        '#FFFFFF'
     ];
 
     for (let i = 0; i < amount; i++) {
 
-        const piece =
-            document.createElement('span');
+        const piece = document.createElement('span');
 
         piece.className = 'confetti';
 
-        const size =
-            5 + Math.random() * 8;
+        const size = 6 + Math.random() * 9;
 
-        const color =
-            colors[
-                Math.floor(
-                    Math.random() * colors.length
-                )
-            ];
+        piece.style.left = Math.random() * 100 + '%';
 
-        piece.style.left =
-            Math.random() * 100 + '%';
+        piece.style.width = size + 'px';
 
-        piece.style.width =
-            size + 'px';
-
-        piece.style.height =
-            size * 1.5 + 'px';
+        piece.style.height = size * 1.4 + 'px';
 
         piece.style.background =
-            i % 4 === 0
-                ? 'linear-gradient(135deg,#FFF2DF,#B77B68,#F5D6C2)'
-                : color;
+            colors[Math.floor(Math.random() * colors.length)];
 
         piece.style.borderRadius =
-            i % 3 === 0 ? '50%' : '1px';
+            i % 3 === 0 ? '50%' : '2px';
 
         piece.style.setProperty(
             '--duration',
@@ -3161,36 +1962,34 @@ function launchConfetti(amount = 65) {
 
         piece.style.setProperty(
             '--delay',
-            Math.random() * .8 + 's'
+            Math.random() * .7 + 's'
         );
 
         piece.style.setProperty(
             '--drift',
-            -100 + Math.random() * 200 + 'px'
-        );
-
-        piece.style.setProperty(
-            '--rotation',
-            360 + Math.random() * 720 + 'deg'
+            Math.random() * 180 - 90 + 'px'
         );
 
         layer.appendChild(piece);
 
-        setTimeout(function () {
-
-            piece.remove();
-
-        }, 6000);
-
+        setTimeout(() => piece.remove(), 6000);
     }
-
 }
 
-/* =====================================
-   CINEMATIC OPENING
-===================================== */
+/* =========================
+   ENVELOPE OPENING
+========================= */
 
-function revealInvitation() {
+const intro = document.getElementById('intro');
+
+const envelope = document.getElementById('envelope');
+
+const transitionPhoto =
+    document.getElementById('transition-photo');
+
+let opened = false;
+
+function showInvitation() {
 
     intro.classList.add('hidden');
 
@@ -3201,60 +2000,49 @@ function revealInvitation() {
     main.inert = false;
 
     window.scrollTo(0, 0);
-
 }
 
 function openInvitation() {
 
-    if (invitationOpened) return;
+    if (opened) return;
 
-    invitationOpened = true;
-
-    // Audio starts directly from the user's tap.
-    // This is important for mobile browsers.
+    opened = true;
 
     playMusic();
-
-    intro.classList.add('opening');
 
     envelope.classList.add('open');
 
     if (reducedMotion) {
-
-        revealInvitation();
-
+        showInvitation();
         return;
-
     }
 
-    setTimeout(function () {
+    setTimeout(() => {
 
-        const letter =
-            envelope.querySelector('.letter');
+        const rect = envelope
+            .querySelector('.letter')
+            .getBoundingClientRect();
 
-        const rect =
-            letter.getBoundingClientRect();
-
-        cinematic.style.top =
+        transitionPhoto.style.top =
             rect.top + rect.height / 2 + 'px';
 
-        cinematic.style.width =
+        transitionPhoto.style.width =
             rect.width + 'px';
 
-        cinematic.style.height =
+        transitionPhoto.style.height =
             rect.height + 'px';
 
-        cinematic.classList.add('ready');
+        transitionPhoto.classList.add('active');
 
-        requestAnimationFrame(function () {
+        requestAnimationFrame(() => {
 
-            requestAnimationFrame(function () {
+            requestAnimationFrame(() => {
 
-                cinematic.style.top = '';
-                cinematic.style.width = '';
-                cinematic.style.height = '';
+                transitionPhoto.style.top = '';
+                transitionPhoto.style.width = '';
+                transitionPhoto.style.height = '';
 
-                cinematic.classList.add('expand');
+                transitionPhoto.classList.add('expand');
 
             });
 
@@ -3262,68 +2050,48 @@ function openInvitation() {
 
     }, 1200);
 
-    setTimeout(function () {
+    setTimeout(() => {
 
-        revealInvitation();
+        showInvitation();
 
-        launchConfetti(75);
+        confetti(100);
 
-    }, 2200);
+    }, 2150);
 
-    setTimeout(function () {
+    setTimeout(() => {
 
-        cinematic.classList.add('finish');
+        transitionPhoto.classList.add('finish');
 
-    }, 2350);
+    }, 2300);
 
-    setTimeout(function () {
+    setTimeout(() => {
 
-        cinematic.style.display = 'none';
+        transitionPhoto.remove();
 
-    }, 3100);
-
+    }, 3000);
 }
 
-intro.addEventListener(
-    'click',
-    openInvitation
-);
+intro.addEventListener('click', openInvitation);
 
-/* =====================================
-   NOVEMBER 2026 CALENDAR
-===================================== */
+/* =========================
+   NOVEMBER CALENDAR
+========================= */
 
-const calendar =
-    document.getElementById('calendar');
-
-const year = 2026;
-
-const month = 10;
+const calendar = document.getElementById('calendar');
 
 const firstDay =
-    (new Date(year, month, 1).getDay() + 6) % 7;
-
-const totalDays =
-    new Date(year, month + 1, 0).getDate();
+    (new Date(2026, 10, 1).getDay() + 6) % 7;
 
 for (let i = 0; i < firstDay; i++) {
 
-    const empty =
-        document.createElement('div');
-
-    empty.setAttribute(
-        'aria-hidden',
-        'true'
-    );
+    const empty = document.createElement('div');
 
     calendar.appendChild(empty);
-
 }
 
-for (let day = 1; day <= totalDays; day++) {
+for (let day = 1; day <= 30; day++) {
 
-    const cell =
-        document.createElement('div');
+    const cell = document.createElement('div');
 
     cell.className = 'day';
 
@@ -3333,42 +2101,86 @@ for (let day = 1; day <= totalDays; day++) {
 
         cell.classList.add('special');
 
+        cell.innerHTML = `
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+                <path
+                    class="calendar-heart"
+                    d="M25 45
+                    C18 37 2 25 3 14
+                    C4 2 19 1 25 12
+                    C32 1 47 2 47 14
+                    C48 25 32 39 25 45Z"
+                />
+            </svg>
+            <span>23</span>
+        `;
+
         cell.setAttribute(
             'aria-label',
             'Նոյեմբերի 23՝ ծննդյան տոն'
         );
-
-        cell.innerHTML = `
-
-            <svg
-                viewBox="0 0 50 50"
-                aria-hidden="true"
-            >
-
-                <path
-                    class="calendar-heart-path"
-                    d="M25 45
-                       C18 37 2 25 3 14
-                       C4 2 19 1 25 12
-                       C32 1 47 2 47 14
-                       C48 25 32 39 25 45Z"
-                />
-
-            </svg>
-
-            <span>23</span>
-
-        `;
-
     }
 
     calendar.appendChild(cell);
-
 }
 
-/* =====================================
+/* =========================
+   LIVE COUNTDOWN
+========================= */
+
+const countdownTarget = DEMO_COUNTDOWN
+
+    ? Date.now() +
+        (4 * 86400 + 12 * 3600 + 38 * 60 + 56) * 1000
+
+    : new Date(EVENT_DATE).getTime();
+
+function updateCountdown() {
+
+    const remaining = Math.max(
+        0,
+        countdownTarget - Date.now()
+    );
+
+    const values = {
+
+        days: Math.floor(remaining / 86400000),
+
+        hours: Math.floor(
+            (remaining % 86400000) / 3600000
+        ),
+
+        minutes: Math.floor(
+            (remaining % 3600000) / 60000
+        ),
+
+        seconds: Math.floor(
+            (remaining % 60000) / 1000
+        )
+    };
+
+    Object.entries(values).forEach(([id, value]) => {
+
+        document.getElementById(id).textContent =
+            String(value).padStart(2, '0');
+
+    });
+
+    if (remaining === 0) {
+
+        document.getElementById('countdown-heading')
+            .textContent = 'Մեր գեղեցիկ տոնը ♡';
+
+    }
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+/* =========================
    SCROLL REVEAL
-===================================== */
+========================= */
 
 const revealElements =
     document.querySelectorAll('.reveal');
@@ -3376,34 +2188,24 @@ const revealElements =
 if ('IntersectionObserver' in window) {
 
     const observer = new IntersectionObserver(
+        entries => {
 
-        function (entries) {
-
-            entries.forEach(function (entry) {
+            entries.forEach(entry => {
 
                 if (entry.isIntersecting) {
 
-                    entry.target.classList.add(
-                        'visible'
-                    );
+                    entry.target.classList.add('visible');
 
-                    observer.unobserve(
-                        entry.target
-                    );
-
+                    observer.unobserve(entry.target);
                 }
 
             });
 
         },
-
-        {
-            threshold: .08
-        }
-
+        { threshold: .08 }
     );
 
-    revealElements.forEach(function (element) {
+    revealElements.forEach(element => {
 
         observer.observe(element);
 
@@ -3411,39 +2213,30 @@ if ('IntersectionObserver' in window) {
 
 } else {
 
-    revealElements.forEach(function (element) {
+    revealElements.forEach(element => {
 
         element.classList.add('visible');
 
     });
-
 }
 
-/* =====================================
-   FLOATING SCRAPBOOK PHOTOS
-===================================== */
+/* =========================
+   FLOATING PHOTOS
+========================= */
 
-const scrapbook =
-    document.getElementById('scrapbook');
+const gallery = document.getElementById('gallery-stage');
 
-let scrollScheduled = false;
+let scheduled = false;
 
-function updateScrapbook() {
+function updateGallery() {
 
-    scrollScheduled = false;
+    scheduled = false;
 
     if (reducedMotion) return;
 
-    const rect =
-        scrapbook.getBoundingClientRect();
+    const rect = gallery.getBoundingClientRect();
 
-    const viewportHeight =
-        window.innerHeight;
-
-    if (
-        rect.bottom < 0 ||
-        rect.top > viewportHeight
-    ) {
+    if (rect.bottom < 0 || rect.top > innerHeight) {
         return;
     }
 
@@ -3451,72 +2244,40 @@ function updateScrapbook() {
         -1,
         Math.min(
             1,
-            (
-                rect.top +
-                rect.height / 2 -
-                viewportHeight / 2
-            ) / viewportHeight
+            (rect.top + rect.height / 2 -
+                innerHeight / 2) / innerHeight
         )
     );
 
-    scrapbook.style.setProperty(
+    gallery.style.setProperty(
         '--float-one',
-        progress * 35 + 'px'
+        progress * 12 + 'px'
     );
 
-    scrapbook.style.setProperty(
+    gallery.style.setProperty(
         '--float-two',
-        progress * -35 + 'px'
+        progress * -12 + 'px'
     );
-
 }
 
-window.addEventListener(
+window.addEventListener('scroll', () => {
 
-    'scroll',
+    if (!scheduled) {
 
-    function () {
+        scheduled = true;
 
-        if (!scrollScheduled) {
-
-            scrollScheduled = true;
-
-            requestAnimationFrame(
-                updateScrapbook
-            );
-
-        }
-
-    },
-
-    {
-        passive: true
+        requestAnimationFrame(updateGallery);
     }
 
-);
+}, { passive: true });
 
-window.addEventListener(
-    'resize',
-    updateScrapbook
-);
+/* =========================
+   RSVP FORM
+========================= */
 
-/* =====================================
-   RSVP CONFIGURATION
-===================================== */
+const form = document.getElementById('rsvp-form');
 
-// Add the compatible endpoint from your RSVP app.
-// Leave empty for the Instagram portfolio demo.
-
-const RSVP_ENDPOINT = "";
-
-const form =
-    document.getElementById('rsvp-form');
-
-const formContent =
-    document.getElementById('form-content');
-
-const success =
-    document.getElementById('success');
+const success = document.getElementById('success');
 
 const submitButton =
     document.getElementById('submit-button');
@@ -3526,189 +2287,145 @@ const formError =
 
 let responseId = null;
 
-form.addEventListener(
+form.addEventListener('submit', async event => {
 
-    'submit',
+    event.preventDefault();
 
-    async function (event) {
+    formError.textContent = '';
 
-        event.preventDefault();
+    const name =
+        document.getElementById('guest-name').value.trim();
 
-        formError.textContent = '';
+    const message =
+        document.getElementById('message').value.trim();
 
-        const name = document
-            .getElementById('guest-name')
-            .value.trim();
+    const selected =
+        document.querySelector('input[name="attendance"]:checked');
 
-        const selected = document.querySelector(
-            'input[name="attendance"]:checked'
-        );
+    if (!name || !selected) {
 
-        if (!name || !selected) {
+        formError.textContent =
+            'Խնդրում ենք լրացնել անհրաժեշտ դաշտերը։';
 
-            formError.textContent =
-                'Խնդրում ենք լրացնել բոլոր դաշտերը։';
-
-            return;
-
-        }
-
-        const attendance =
-            selected.value;
-
-        const response = {
-
-            name: name,
-
-            attendance:
-                attendance === 'yes'
-                    ? 'Կմասնակցեմ'
-                    : 'Չեմ մասնակցի',
-
-            event: 'Մարիայի 11-ամյակը',
-
-            date: '23.11.2026',
-
-            response_id: responseId
-
-        };
-
-        submitButton.disabled = true;
-
-        submitButton.textContent =
-            'Խնդրում ենք սպասել…';
-
-        try {
-
-            if (RSVP_ENDPOINT) {
-
-                const result = await fetch(
-
-                    RSVP_ENDPOINT,
-
-                    {
-
-                        method: 'POST',
-
-                        headers: {
-
-                            'Content-Type':
-                                'application/json'
-
-                        },
-
-                        body: JSON.stringify(
-                            response
-                        )
-
-                    }
-
-                );
-
-                if (!result.ok) {
-
-                    throw new Error(
-                        'RSVP submission failed'
-                    );
-
-                }
-
-                const data = await result
-                    .json()
-                    .catch(() => ({}));
-
-                responseId =
-                    data.response_id || responseId;
-
-            } else {
-
-                // Portfolio demonstration only.
-                // Guest information is not transmitted.
-
-                await new Promise(function (resolve) {
-
-                    setTimeout(resolve, 450);
-
-                });
-
-            }
-
-            document.getElementById('success-name')
-                .textContent = name + ' ♡';
-
-            document.getElementById('success-text')
-                .textContent = RSVP_ENDPOINT
-
-                    ? (
-                        attendance === 'yes'
-
-                            ? 'Ձեր պատասխանը գրանցված է։ Սիրով սպասում եմ ձեզ։'
-
-                            : 'Շնորհակալություն պատասխանի համար։'
-                    )
-
-                    : 'Ձեր ընտրությունը՝ ' +
-                        response.attendance + '։';
-
-            formContent.style.display = 'none';
-
-            success.classList.add('show');
-
-            if (attendance === 'yes') {
-
-                launchConfetti(40);
-
-            }
-
-        } catch (error) {
-
-            formError.textContent =
-                'Չհաջողվեց ուղարկել պատասխանը։ Խնդրում ենք կրկին փորձել։';
-
-        } finally {
-
-            submitButton.disabled = false;
-
-            submitButton.textContent =
-                'Հաստատել պատասխանը';
-
-        }
-
+        return;
     }
 
-);
+    const attending = selected.value === 'yes';
 
-/* =====================================
-   EDIT RSVP RESPONSE
-===================================== */
+    const response = {
+
+        name,
+
+        attendance: attending
+            ? 'Կմասնակցեմ'
+            : 'Չեմ մասնակցի',
+
+        message,
+
+        event: 'Մարիայի 11-ամյակը',
+
+        date: '23.11.2026',
+
+        response_id: responseId
+    };
+
+    submitButton.disabled = true;
+
+    submitButton.textContent = 'Խնդրում ենք սպասել…';
+
+    try {
+
+        if (RSVP_ENDPOINT) {
+
+            const result = await fetch(RSVP_ENDPOINT, {
+
+                method: 'POST',
+
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify(response)
+            });
+
+            if (!result.ok) {
+                throw new Error('Submission failed');
+            }
+
+            const data = await result
+                .json()
+                .catch(() => ({}));
+
+            responseId =
+                data.response_id || responseId;
+
+        } else {
+
+            await new Promise(resolve =>
+                setTimeout(resolve, 400)
+            );
+        }
+
+        document.getElementById('success-name')
+            .textContent = name + ' ♡';
+
+        document.getElementById('success-message')
+            .textContent = RSVP_ENDPOINT
+
+                ? (
+                    attending
+                        ? 'Ձեր պատասխանը գրանցված է։ Սիրով սպասում եմ ձեզ։'
+                        : 'Շնորհակալություն պատասխանի համար։'
+                )
+
+                : 'Ձեր ընտրությունը՝ ' + response.attendance + '։';
+
+        form.style.display = 'none';
+
+        success.classList.add('show');
+
+        if (attending) {
+            confetti(55);
+        }
+
+    } catch (error) {
+
+        formError.textContent =
+            'Չհաջողվեց ուղարկել պատասխանը։ Կրկին փորձեք։';
+
+    } finally {
+
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+            'Հաստատել պատասխանը ✦';
+    }
+});
 
 document.getElementById('edit-response')
-
-    .addEventListener('click', function () {
+    .addEventListener('click', () => {
 
         success.classList.remove('show');
 
-        formContent.style.display = 'block';
+        form.style.display = 'block';
 
-        document.getElementById('guest-name')
-            .focus();
+        document.getElementById('guest-name').focus();
 
     });
 
 </script>
 
 <noscript>
-
     <style>
-
         .intro,
-        .cinematic,
+        .transition-photo,
         .music-button {
             display: none;
         }
-
+        .calendar-heart {
+            stroke-dashoffset: 0;
+        }
     </style>
-
 </noscript>
 
 </body>
