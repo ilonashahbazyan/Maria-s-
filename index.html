@@ -2058,6 +2058,58 @@ footer h2 {
     z-index: 6;
 }
 </style>
+   <style>
+.countdown {
+    padding: 50px 18px;
+    background: #653C32;
+    color: #FFF8F0;
+    text-align: center;
+}
+
+.countdown-heading {
+    font-family: 'Noto Serif Armenian', serif;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    letter-spacing: 0;
+}
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.countdown-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 16px;
+    padding: 22px 2px;
+}
+
+.countdown-number {
+    display: block;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: clamp(26px, 8vw, 42px);
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+    display: block;
+    font-size: 10px;
+    margin-top: 12px;
+    color: #E8CBB7;
+}
+
+.countdown-heart {
+    display: none;
+}
+</style>
 </head>
 
 <body>
