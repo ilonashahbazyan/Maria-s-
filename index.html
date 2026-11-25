@@ -2030,7 +2030,33 @@ footer h2 {
     }
 
 }
+.envelope-back {
+    z-index: 1;
+}
 
+.letter {
+    z-index: 3;
+}
+
+.envelope-left,
+.envelope-right,
+.envelope-bottom {
+    z-index: 4;
+}
+
+.flap {
+    z-index: 5;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.envelope.open .flap {
+    z-index: 0;
+}
+
+.heart-seal {
+    z-index: 6;
+}
 </style>
 </head>
 
